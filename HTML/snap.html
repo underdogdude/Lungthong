@@ -16,34 +16,65 @@
 
   <body style="background-color:#404040">
 	<div class="container" align="center">
-    	<div class="row">
-		<div  id="snapcam">
-       	 	
+    	<div class="row" id="viewer" style="display:none">
+			<div  id="snapcam">
+        	</div>
         </div>
-        </div>
-        <div class="row" align="center" id="snapcontrol">
-        <div class="col-xs-4"><img src="img/icon/swipcam.png" class="snap_icon" id="swipcam"/> </div>
-        <div class="col-xs-4"> <img src="img/icon/shutter.png"  class="snap_icon" id="shutter"/> </div>
+        <div class="row" align="center" id="snapcontrol" style="display:none">
+        	<div class="col-xs-4"><img src="img/icon/swipcam.png" class="snap_icon" id="swipcam"/> </div>
+        	<div class="col-xs-4"> <img src="img/icon/shutter.png"  class="snap_icon" id="shutter"/> </div>
         <div class="col-xs-4"><img src="img/icon/upload.png"  class="snap_icon" id="upload"/> </div> 
        </div>
        </div>
        <div class="row">
       	<div class="col-xs-8 col-xs-offset-2" id="postform" style="display:block">
         <form class="form" role="form" >
-        <h1 style="color:#FFF"> Customer Form</h1>
+        <h1 style="color:#FFF" ><span class="glyphicon glyphicon-arrow-left"  onClick="backtosnap()"></span>Customer Form</h1>
         <p> <input type="text" id="topic_name" class="form-control" placeholder="Topic Name" required autofocus></p>
         <p> <textarea type="text" rows="4" id="description" class="form-control" placeholder="Description" required></textarea></p>
-       
-       	<div class="btn-group">
-  		<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Type<span class="caret"></span></button>
-  			<ul class="dropdown-menu" role="menu">
-    		<li><a href="#">Shirt</a></li>
-    		<li><a href="#">Hat</a></li>
-    		<li><a href="#">Shoes</a></li>
-    		<li class="divider"></li>
-    		<li><a href="#">Separated link</a></li>
-  			</ul>
-		</div>
+        
+       	<div class="col-md-3 col-xs-6">
+       	<select class="form-control" name="type" >
+       	<option selected disabled>Type</option>
+  		<option value="">shirt</option>
+  		<option value="">2</option>
+  		<option value="">3</option>
+  		<option value="">4</option>
+  		<option value="">5</option>
+		</select>
+        </div>
+        <div class="col-md-3 col-xs-6">
+       	<select class="form-control" name="style" >
+       	<option selected disabled>Style</option>
+  		<option value="">shirt</option>
+  		<option value="">2</option>
+  		<option value="">3</option>
+  		<option value="">4</option>
+  		<option value="">5</option>
+		</select>
+        </div>
+        <div class="col-md-3 col-xs-6">
+       	<select class="form-control" name="color" >
+       	<option selected disabled>Color</option>
+  		<option value="">shirt</option>
+  		<option value="">2</option>
+  		<option value="">3</option>
+  		<option value="">4</option>
+  		<option value="">5</option>
+		</select>
+        </div>
+        <div class="col-md-3 col-xs-6">
+       	<select class="form-control" name="size" >
+       	<option selected disabled>Size</option>
+  		<option value="">shirt</option>
+  		<option value="">2</option>
+  		<option value="">3</option>
+  		<option value="">4</option>
+  		<option value="">5</option>
+		</select>
+        </div>
+        <br>
+		<input type="text" placeholder="Min Price" id="min_price" required>
         <br>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Post</button>
         </form>
@@ -60,7 +91,15 @@
        </div>
 
 	
+<script>
 
+function backtosnap(){
+	document.getElementById('postform').style.display='none';
+	document.getElementById('snapcontrol').style.display='block';
+	document.getElementById('viewer').style.display='block';
+	
+}
+</script>
   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
