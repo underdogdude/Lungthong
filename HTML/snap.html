@@ -16,18 +16,18 @@
 
   <body style="background-color:#404040">
 	<div class="container" align="center">
-    	<div class="row" id="viewer" style="display:none">
+    	<div class="row" id="viewer" style="display:block">
 			<div  id="snapcam">
         	</div>
         </div>
-        <div class="row" align="center" id="snapcontrol" style="display:none">
+        <div class="row" align="center" id="snapcontrol" style="display:block">
         	<div class="col-xs-4"><img src="img/icon/swipcam.png" class="snap_icon" id="swipcam"/> </div>
         	<div class="col-xs-4"> <img src="img/icon/shutter.png"  class="snap_icon" id="shutter"/> </div>
         <div class="col-xs-4"><img src="img/icon/upload.png"  class="snap_icon" id="upload"/> </div> 
        </div>
        </div>
        <div class="row">
-      	<div class="col-xs-8 col-xs-offset-2" id="postform" style="display:block">
+      	<div class="col-xs-8 col-xs-offset-2" id="postform" style="display:none">
         <form class="form" role="form" >
         <h1 style="color:#FFF" ><span class="glyphicon glyphicon-arrow-left"  onClick="backtosnap()"></span>Customer Form</h1>
         <p> <input type="text" id="topic_name" class="form-control" placeholder="Topic Name" required autofocus></p>
@@ -97,6 +97,12 @@ function backtosnap(){
 	document.getElementById('postform').style.display='none';
 	document.getElementById('snapcontrol').style.display='block';
 	document.getElementById('viewer').style.display='block';
+	
+}
+function gotopost(){
+	document.getElementById('postform').style.display='block';
+	document.getElementById('snapcontrol').style.display='none';
+	document.getElementById('viewer').style.display='none';
 	
 }
 </script>
