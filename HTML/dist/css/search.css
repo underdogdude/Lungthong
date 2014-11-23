@@ -4,12 +4,13 @@
 #search_menu{
 	background-color:#333;
 	height:90px;
-	transition: all 0.7s ease-in-out ;
+	
 	margin-top:40px;
 	padding:20px;	
+	margin-bottom:-20px;
 	}
-#search_menu:active{
-	height:300px;	
-		
-	}
-	
+
+	.search_topic{
+	padding:10px;
+	background-color:#fff2a7;
+		}
