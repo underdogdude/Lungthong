@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -9,12 +10,19 @@
 <body>
 <form>
 	<h1>Register</h1>
+	<c:set var="pic" value="http://localhost:8080/newfeed/dukeWaving.png"/> เปลี่ยนรูปปปปปปปปปปปปปปปปปปปปปปปปปปปปปปปปปปปปตรงนี้ๆๆ
 	Username:<br><input type="text" name="user"/><br>
 	Password:<br><input type="password" name="pass"/><br>
 	Confirm Password:<br><input type="password" name="passag"/><br>
 	
 	Email:<br><input type="text" name="email"/><br>
 	Confirm Email:<br><input type="text" name="emailag"/><br>
+	
+	Name:<br><input type="text" name="name"/><br>
+	Surname:<br><input type="text" name="surname"/><br>
+	Address:<br><input type="text" name="add"/><br>
+	Telephone:<br><input type="text" name="tel"/><br>
+	Social:<br><input type="text" name="social"/><br>
 	
 	<input type="submit" value="Register"/> 
 </form>
@@ -46,14 +54,14 @@
 		</c:if>
 		<c:if test="${stat.equals(value)}">
 			<sql:update dataSource="jdbc/lungthong" var="selected">
-				INSERT INTO `lungthong`.`member` (`username`, `password`, `email`, `role`) VALUES ('${param.user}', '${param.pass}', '${param.email}', 'user');
+				INSERT INTO `lungthong`.`member` (`username`, `password`, `email`, `role`, `name`, `surname`, `address`, `tel`, `social`, `pic`) VALUES ('${param.user}', '${param.pass}', '${param.email}', 'user', '${param.name}', '${param.surname}', '${param.add}', '${param.tel}', '${param.social}','${pic}');
 
 				<c:set var="stat" value="Success"/>
 			</sql:update>
 		</c:if>
 	</c:forEach>
 	${stat}
-</form>
+	</form>
 </c:if>
 </body>
 </html>
