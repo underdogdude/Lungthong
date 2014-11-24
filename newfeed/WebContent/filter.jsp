@@ -17,34 +17,34 @@
 	<form>
 	<h1>New feed</h1>
   <select class="form-control" id="type" name="type">
-    <option value="all">all</option>
+    <option value="' or '1'='1">all</option>
     <option value="Tops">Tops</option>
     <option value="Bottoms">Bottoms</option>
     <option value="Shoes">Shoes</option>
     <option value="Accessories">Accessories</option>
   </select>
   <select class="form-control" id="style" name="style">
-<option value="all" class="all">all</option>
-    <option value="all" class="Tops">All</option>
+<option value="' or '1'='1" class="' or '1'='1">All</option>
+    <option value="' or '1'='1" class="Tops">All</option>
     <option value="T-shirt" class="Tops">T-Shirt</option>
     <option value="Shirt" class="Tops">Shirt</option>
     <option value="Jacket" class="Tops">Jacket</option>
-    <option value="all" class="Bottoms">All</option>
+    <option value="' or '1'='1" class="Bottoms">All</option>
     <option value="Jeans" class="Bottoms">Jeans</option>
     <option value="Shorts" class="Bottoms">Shorts</option>
     <option value="Skirt" class="Bottoms">Skirt</option>
     <option value="Trousers" class="Bottoms">Trousers</option>
-    <option value="all" class="Accessories">All</option>
+    <option value="' or '1'='1" class="Accessories">All</option>
     <option value="Hat" class="Accessories">Hat</option>
     <option value="Cap" class="Accessories">Cap</option>
     <option value="Watch" class="Accessories">Watch</option>
-    <option value="all" class="Shoes">All</option>
+    <option value="' or '1'='1" class="Shoes">All</option>
     <option value="Sandals" class="Shoes">Sandals</option>
     <option value="Sneakers" class="Shoes">Sneakers</option>
     <option value="Boots" class="Shoes">Boots</option>
   </select>
 	<select name= "colour">
-			<option value="' ' or true">All</option>
+			<option value="' or '1'='1">All</option>
 			<option value="Red">Red</option>
 			<option value="Green">Green</option>
 			<option value="Blue">Blue</option>
@@ -59,7 +59,7 @@
 	<c:if test="${param.colour !=null }">
 	<form action="comment.jsp">
 	<sql:query dataSource="jdbc/lungthong" var="rs">
-			SELECT * FROM lungthong.post where (style= "${param.style}") and (colour= "${param.colour}");
+			sELECT * FROM lungthong.post where (type='${param.type}') and (style= '${param.style}') and (colour= '${param.colour}');
 	</sql:query>
 	<c:forEach items="${rs.rows}" var="i">
 		<div class="container">
