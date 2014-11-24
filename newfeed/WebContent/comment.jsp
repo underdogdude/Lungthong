@@ -14,7 +14,13 @@
 	</sql:query>
 	<c:forEach items="${rs.rows}" var="i">
 		${i.head}  <img src="${i.pic}"><br>
-		${i.comment}<br>  
+		${i.comment}<br>
+		<sql:query dataSource="jdbc/lungthong" var="rs2">
+			select * from member where user_id= ${i.user_id};
+		</sql:query>
+		<c:forEach items="${rs2.rows}" var="k">
+			by <a href= profile.jsp?id=${i.user_id}>${k.username}</a>  <br>
+		</c:forEach>  
 	</c:forEach>
 	----------------------------------------------------<br>
 	---------------------------------------------------<br>
@@ -27,7 +33,7 @@
 			select * from member where user_id= ${j.owner};
 		</sql:query>
 		<c:forEach items="${rs2.rows}" var="k">
-			by ${k.username}  <br>
+			by <a href= profile.jsp?id=${k.user_id}>${k.username}</a>  <br>
 		</c:forEach>
 		_______________________________________________<br>
 	</c:forEach>
