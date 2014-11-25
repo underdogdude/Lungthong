@@ -59,7 +59,7 @@
 	<c:if test="${param.colour !=null }">
 	<form action="comment.jsp">
 	<sql:query dataSource="jdbc/lungthong" var="rs">
-			sELECT * FROM lungthong.post where (type='${param.type}') and (style= '${param.style}') and (colour= '${param.colour}');
+			sELECT * FROM lungthong.post where (type='${param.type}') and (style= '${param.style}') and (colour= '${param.colour}') and stat="yes";
 	</sql:query>
 	<c:forEach items="${rs.rows}" var="i">
 		<div class="container">

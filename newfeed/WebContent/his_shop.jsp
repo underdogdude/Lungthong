@@ -10,7 +10,7 @@
 <body>
 <form action="comment.jsp">
 	<h1>History Shop</h1>
-	<c:set var="user" value="4"/>
+	<c:set var="user" value="4"/> ไอดีผู้ใช้ๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆ<br>
 	<sql:query dataSource="jdbc/lungthong" var="rs">
 			select * from comment where owner=${user};
 	</sql:query>

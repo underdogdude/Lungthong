@@ -9,15 +9,15 @@
 </head>
 <body>
 	<c:set var="user" value="5"/> ไอดีผู้ใช้ๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆ
-	<c:if test="${param.com !=null}">
-	<form action="comment.jsp?id=${param.id}">
+	<c:if test="${param.p_id !=null}">
+	<form>
 		<sql:update dataSource="jdbc/lungthong" var="rs2">
-			INSERT INTO comment (`text`, `owner`, `post_id`) VALUES ("${param.com}", ${user}, ${param.id});
+			UPDATE `lungthong`.`post` SET `stat`='finish' WHERE `post_id`="${param.p_id}";
 		</sql:update>
-		<jsp:forward page="comment.jsp"> 
-			<jsp:param name="id" value="${param.id}"/> 
+		<jsp:forward page="newfeed.jsp">
+			<jsp:param name="" value=""/>
 		</jsp:forward>
-	<c:redirect url="http://localhost:8080/newfeed/comment.jsp?id=${param.id}"/>
+	<c:redirect url="http://localhost:8080/newfeed/newfeed.jsp"/>
 	</form>
 	</c:if>
 </body>

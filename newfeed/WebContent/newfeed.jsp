@@ -11,7 +11,7 @@
 <form action="comment.jsp">
 	<h1>New feed</h1>
 	<sql:query dataSource="jdbc/lungthong" var="rs">
-			select * from post;
+			select * from post where stat="yes";
 	</sql:query>
 	<c:forEach items="${rs.rows}" var="i">
 		<div class="container">

@@ -10,7 +10,7 @@
 <body>
 <form action="comment.jsp">
 	<h1>History User</h1>
-	<c:set var="user" value="1"/>
+	<c:set var="user" value="1"/> ไอดีผู้ใช้ๆๆๆๆๆๆๆๆๆๆๆๆๆ<br>
 	<sql:query dataSource="jdbc/lungthong" var="rs">
 			select * from post where user_id=${user};
 	</sql:query>

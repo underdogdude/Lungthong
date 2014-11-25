@@ -8,11 +8,24 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="comment_putdb.jsp">
+	<c:set var="user" value="1"/> ไอดีผู้ใช้ๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆ<br>
 	<sql:query dataSource="jdbc/lungthong" var="rs">
 			select * from post where post_id= ${param.id};
 	</sql:query>
 	<c:forEach items="${rs.rows}" var="i">
+		<c:if test="${i.user_id==user}">
+			<form action="delcom.jsp">
+			<input type="hidden" name="p_id" value="${i.post_id}">
+			<input type='submit' value='Delete'>
+			</form>
+			<form>
+			<input type='submit' value='Edit'>
+			</form>
+			<form action="lock.jsp">
+			<input type="hidden" name="p_id" value="${i.post_id}">
+			<input type='submit' value='Finish'><br>
+			</form>
+		</c:if>
 		${i.head}  <img src="${i.pic}"><br>
 		${i.comment}<br>
 		<sql:query dataSource="jdbc/lungthong" var="rs2">
@@ -37,6 +50,7 @@
 		</c:forEach>
 		_______________________________________________<br>
 	</c:forEach>
+	<form action="comment_putdb.jsp">
 	<input type="text" name="com" ><br>
 	<input type="hidden" name="id" value="${param.id}">
 	<input type='submit' value='post'>
