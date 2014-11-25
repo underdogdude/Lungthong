@@ -18,7 +18,8 @@
 			<input type="hidden" name="p_id" value="${i.post_id}">
 			<input type='submit' value='Delete'>
 			</form>
-			<form>
+			<form action="editre.jsp" >
+			<input type="hidden" name="p_id" value="${param.id}">
 			<input type='submit' value='Edit'>
 			</form>
 			<form action="lock.jsp">
@@ -27,7 +28,16 @@
 			</form>
 		</c:if>
 		${i.head}  <img src="${i.pic}"><br>
-		${i.comment}<br>
+		<c:if test="${param.edit!=null}">
+			<form action="editdb.jsp">
+			<input type="hidden" name="p_id" value="${param.id}">
+			<input type="text" name="com" value="${i.comment}"><br>
+			<input type='submit' value='edit'>
+			</form>
+		</c:if>
+		<c:if test="${param.edit==null}">
+			${i.comment}<br>
+		</c:if>
 		<sql:query dataSource="jdbc/lungthong" var="rs2">
 			select * from member where user_id= ${i.user_id};
 		</sql:query>
