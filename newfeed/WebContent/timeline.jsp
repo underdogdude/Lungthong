@@ -12,7 +12,7 @@
     <title>LungThong - Invert Online Market</title>
     <link href="dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="dist/css/profile.css" rel="stylesheet">
+    
     <link href="starter-template.css" rel="stylesheet">
     <script src="assets/js/ie-emulation-modes-warning.js"></script>
   </head>
@@ -20,34 +20,32 @@
   <body>
   <form>
   	<sql:query dataSource="jdbc/lungthong" var="rs">
-		select * from member where user_id=${param.id};
+			select * from post where stat="yes";
 	</sql:query>
-	<c:forEach var="i" items="${rs.rows}">
-	<div class="container" align="center">
-    <h1>Customer Profile</h1>
-    <hr>
-    <div class="row" id="info_row" align="center">
-        <div class="col-xs-6" align="center">
-            <img id="profile_pic" class="img-responsive img-circle"  src="${i.pic}">
-         </div>
-          <div class="col-xs-6">
-            <h1>${i.username}</h1><br>
-            Name: ${i.name}  ${surname}<br>
-            Telephone: ${i.tel}
-            Social: ${i.social}
-         </div>
-         <div class="col-xs-12">
-          Address: ${i.address}
-         </div>
-		</c:forEach>
-         <div class="col-xs-8 col-xs-offset-2"><br>
-         </form>
-         <form action="comment.jsp?id=${param.id}"?
-         <button class="btn-info btn btn-block" onClick="javascript:window.location='comment.jsp?id=${param.p_id}';">Back</button>
-         
-         </div>
-     </div>
-     </div>  
+	<c:forEach items="${rs.rows}" var="i">
+	<div class="container">
+    	<div class="row navbar-fixed-top" id="top" align="right">
+        <img src="img/icon/setting.png" id="setting_icon">
+        </div>
+		<div class="col-xs-10 col-xs-offset-1" id="main">
+           	<div class="mytopic row">
+            	<div class="col-xs-4" align="center"><a href= comment.jsp?id=${i.post_id}><img src="${i.pic}" class="thumbnail img-responsive" /></a></div>
+                <div class="col-xs-8">
+                <h1 id="mytopic_name"><a href= comment.jsp?id=${i.post_id} style="color:white">${i.head}</a</h1>
+                <h3>
+                <span class="label label-info">${i.type}</span>
+                <span class="label label-info">${i.style}</span>
+                <span class="label label-info">${i.colour}</span>
+                </h3>
+                <h3 id="mytopic_price">Price ${i.minp} - ${i.maxp}</h3>
+                </div>
+            </div> 
+            </div> 
+				
+     	</div>
+		</div>
+       
+      </div>  
        <div class="row navbar-fixed-bottom" id="bottom_menu" align="center">
         <img src="img/icon/selection.png"  class="selection">
        <img src="img/icon/timeline.png"  class="img-rounded">
@@ -62,5 +60,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
     <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+    </c:forEach>
+    </form>
   </body>
 </html>

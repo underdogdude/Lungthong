@@ -1,0 +1,25 @@
+#info_row{
+	margin:30px;
+	}
+#product_pic{
+	width:250px;
+}
+.container{
+	margin-top:20px;
+	margin-bottom:50px;
+}
+topic_name{
+	
+}
+#topic_info{
+	padding:20px;
+	background-color:#E7AE05;
+}
+#comment_row{
+	padding:10px;
+	background-color:#E7AE05;
+	margin:10px;
+}
+#profile_comment_pic{
+	width:100px;
+	}

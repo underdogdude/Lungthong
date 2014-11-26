@@ -1,0 +1,149 @@
+body {
+
+  background-color:#ffdd20;
+}
+
+#top{
+	background-color:#bcbcaa;
+	height:40px;
+}
+#setting_icon{
+	height:30px;
+	margin-right:15px;
+	margin-top:5px;
+}
+#main{
+	
+	margin-top:50px;
+	padding-top:10px;
+	}
+#mytopic_name{
+	margin-top:5px;
+	color:#FFF;
+	}
+#topic_name{
+	margin-top:5px;
+	color:#000;
+	}
+#mytopic_price{
+	
+	color:#FFF;
+	}
+#topic_price{
+	
+	color:#000;
+	}		
+#bottom_menu{
+	background-color: #bcbcaa;
+
+	}
+.img-rounded{
+	height:50px;
+}
+.selection{
+	position:absolute;
+	height:60px;
+	width:80px;
+	z-index:-1;
+
+	}
+.mytopic{
+	padding-top:10px;
+	background-color:#069;
+	
+	}
+	
+.topic{
+	padding-top:10px;
+	background-color:#fff2a7;
+	margin-top:10px;
+	}
+	
+.thumbnail{
+	width:150px;
+}
+#snapcam{
+	margin-top:30px;
+	height:400px;
+	width::400px;
+	
+	background-color:#333
+}
+#snapcontrol{
+margin-top:50px;
+margin-left:-80px;
+}
+.snap_icon{
+	height:40px;
+}
+#swipcam{
+	position:absolute;
+	
+	
+}
+#shutter{
+	position:absolute;
+	height:100px;
+	margin-top:-50px;
+
+	
+}
+#upload{
+	position:absolute;
+	
+	
+}
+#logo{
+	-webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 2s; /* Firefox < 16 */      
+}
+#login__logo{
+	height:350px;
+}
+#button{
+	-webkit-animation: fadein 4s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 4s; /* Firefox < 16 */   
+}
+#loginform{
+	-webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 2s; /* Firefox < 16 */   
+}
+#choosebutton{
+	margin-top:20%;
+	-webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 2s; /* Firefox < 16 */   
+}
+#customerform{
+	background-color:#333;
+	padding:30px;
+	margin-top:30px;
+	-webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 2s; /* Firefox < 16 */   
+}
+#shopform{
+	background-color:#333;
+	padding:30px;
+	margin-top:30px;
+	-webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 2s; /* Firefox < 16 */   
+}
+ 
+
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}	
+
+@-webkit-keyframes fadeout { /* Safari and Chrome */
+    from {
+        opacity:1;
+    }
+    to {
+        opacity:0;
+    }
+}
+	

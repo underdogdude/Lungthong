@@ -18,9 +18,10 @@
   </head>
 
   <body>
+  <c:set var="user" value="1"/> ไอดีผู้ใช้ๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆ<br>
   <form>
   	<sql:query dataSource="jdbc/lungthong" var="rs">
-		select * from member where user_id=${param.id};
+		select * from member where user_id=${user};
 	</sql:query>
 	<c:forEach var="i" items="${rs.rows}">
 	<div class="container" align="center">
@@ -32,18 +33,22 @@
          </div>
           <div class="col-xs-6">
             <h1>${i.username}</h1><br>
-            Name: ${i.name}  ${surname}<br>
-            Telephone: ${i.tel}
-            Social: ${i.social}
+            <input name="name" type="text" class="form-control" id="cus_name" placeholder="Name" value="${i.name}"><input name="surname" type="text" class="form-control" id="cus_surname" placeholder="Surname" value="${i.surname}"><br>
+            <input name="tel" type="text" class="form-control" id="cus_tel" placeholder="Tel" value="${i.tel}"><br>
+            <input name="social" type="text" class="form-control" id="cus_social" placeholder="Social" value="${i.social}">
          </div>
          <div class="col-xs-12">
-          Address: ${i.address}
+           <textarea name="add" class="form-control" rows="4" >${i.address}</textarea>
          </div>
 		</c:forEach>
          <div class="col-xs-8 col-xs-offset-2"><br>
+
+         <button class="btn-warning btn btn-block" >Change Setting</button><br>
          </form>
-         <form action="comment.jsp?id=${param.id}"?
-         <button class="btn-info btn btn-block" onClick="javascript:window.location='comment.jsp?id=${param.p_id}';">Back</button>
+
+          <button class="btn-danger btn btn-block">Logout</button><br>
+         
+         <button class="btn-info btn btn-block">Back</button>
          
          </div>
      </div>
@@ -62,5 +67,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
     <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+  	<c:if test="${param.name!=null || param.tel!=null || param.social!=null || param.add!=null}">
+  		<sql:update dataSource="jdbc/lungthong" var="rs">
+			UPDATE `lungthong`.`member` SET `name`='${param.name}', `surname`='${param.surname}', `address`='${param.add}', `tel`='${param.tel}', `social`='${param.social}' WHERE `user_id`='${user}';
+		</sql:update>
+		<c:redirect url="profile_setting.jsp"/>
+	</c:if>
   </body>
 </html>
