@@ -19,7 +19,6 @@
 
   <body>
   <form>
-  	<c:set var="user" value="1"/> ไอดีผู้ใช้ๆๆๆๆๆๆๆๆๆๆๆๆๆ<br>
 	<sql:query dataSource="jdbc/lungthong" var="rs">
 			select * from post where user_id=${user};
 	</sql:query>

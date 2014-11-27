@@ -41,8 +41,9 @@
         <div class="col-xs-8 col-xs-offset-2">
         <form class="form-signin" role="form" id="loginform" style="display:none">
         
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <input type="text" id="inputEmail" class="form-control" placeholder="Username" required autofocus name="user">
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required name="pass">
+ 		<input type="hidden" name="logincheck" value="true">      
        
         <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
         </form>
@@ -58,11 +59,12 @@
         
         <form class="form" role="form" >
         <h1 style="color:#FFF"> Customer Form</h1>
-        <p> <input type="text" id="username" class="form-control" placeholder="Username" required autofocus></p>
-        <p> <input type="password" id="inputPassword" class="form-control" placeholder="Password" required></p>
-        <p><input type="password" id="inputCPassword" class="form-control" placeholder="Confirm Password" required></p>
-        <p><input type="email" id="inputEmail" class="form-control" placeholder="Email" required></p>
-        <p><input type="email" id="inputCEmail" class="form-control" placeholder="Email Confirm" required></p>
+        <p> <input name="user" type="text" id="username" class="form-control" placeholder="Username" required autofocus></p>
+        <p> <input name="pass" type="password" id="inputPassword" class="form-control" placeholder="Password" required></p>
+        <p><input name="passag" type="password" id="inputCPassword" class="form-control" placeholder="Confirm Password" required></p>
+        <p><input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email" required></p>
+        <p><input name="emailag" type="email" id="inputCEmail" class="form-control" placeholder="Email Confirm" required></p>
+        <input type="hidden" name="regischeck" value="true">
         <br>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
         </form>
@@ -71,11 +73,12 @@
          <div class="col-xs-8 col-xs-offset-2" id="shopform" style="display:none">
         <form class="form" role="form" >
         <h1 style="color:#FFF"> Shop Form</h1>
-        <p> <input type="text" id="username" class="form-control" placeholder="Username" required autofocus></p>
-        <p> <input type="password" id="inputPassword" class="form-control" placeholder="Password" required></p>
-        <p><input type="password" id="inputCPassword" class="form-control" placeholder="Confirm Password" required></p>
-        <p><input type="email" id="inputEmail" class="form-control" placeholder="Email" required></p>
-        <p><input type="email" id="inputCEmail" class="form-control" placeholder="Email Confirm" required></p>
+        <p> <input name="user" type="text" id="username" class="form-control" placeholder="Username" required autofocus></p>
+        <p> <input name="pass" type="password" id="inputPassword" class="form-control" placeholder="Password" required></p>
+        <p><input name="passag" type="password" id="inputCPassword" class="form-control" placeholder="Confirm Password" required></p>
+        <p><input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email" required></p>
+        <p><input name="emailag" type="email" id="inputCEmail" class="form-control" placeholder="Email Confirm" required></p>
+        <input type="hidden" name="regischeck" value="true">
         <br>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
         </form>
@@ -87,5 +90,68 @@
     <script src="dist/js/bootstrap.min.js"></script>
     <script src="dist/js/login.js"></script>
     <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+    
+    <c:if test="${param.logincheck!=null}">
+    	<form>
+			<sql:query dataSource="jdbc/lungthong" var="rs">
+				select * from member;
+			</sql:query>
+			<c:set var="stat" value="fail"/>
+			<c:forEach var="i" items="${rs.rows}">
+				<c:if test="${param.user.equals(i.username)}">
+					<c:if test="${param.pass.equals(i.password)}">
+						<c:set var="stat" value="success"/>
+					</c:if>
+				</c:if>
+			</c:forEach>
+			<c:if test="${stat.equals('success')}">
+				<sql:query dataSource="jdbc/lungthong" var="rs">
+					select * from member where username="${param.user}";
+				</sql:query>
+				<c:forEach var="i" items="${rs.rows}">
+					<c:set var="user" value="${i.user_id}" scope="session"/>
+				</c:forEach>
+				<c:redirect url="timeline.jsp"/>
+			</c:if>
+			${stat}
+		</form>
+    </c:if>
+    <c:if test="${param.regischeck!=null}">
+    	<form>
+	<sql:query dataSource="jdbc/lungthong" var="rs">
+		select * from member;
+	</sql:query>
+	<c:set var="stat" value="start"/>
+	<c:set var="value" value="start"/>
+	<c:forEach var="i" items="${rs.rows}">
+		<c:if test="${param.user.equals(i.username)}">
+			<c:set var="stat" value="Username is already used"/>
+		</c:if>
+		<c:if test="${stat.equals(value)}">
+			<c:if test="${param.pass.length()<6}">
+				<c:set var="stat" value="The password your enter at least 6 character."/>
+			</c:if>
+		</c:if>
+		<c:if test="${stat.equals(value)}">
+			<c:if test="${param.pass !=param.passag}">
+				<c:set var="stat" value="The password your enter doesn't match."/>
+			</c:if>
+		</c:if>
+		<c:if test="${stat.equals(value)}">
+			<c:if test="${param.email !=param.emailag}">
+				<c:set var="stat" value="The email your enter doesn't match."/>
+			</c:if>
+		</c:if>
+		<c:if test="${stat.equals(value)}">
+			<sql:update dataSource="jdbc/lungthong" var="selected">
+				INSERT INTO `lungthong`.`member` (`username`, `password`, `email`, `role`,`pic`) VALUES ('${param.user}', '${param.pass}', '${param.email}', 'user','http://localhost:8080/newfeed/img/icon/logo_longthong.png');
+
+				<c:set var="stat" value="Success"/>
+			</sql:update>
+		</c:if>
+	</c:forEach>
+	${stat}
+	</form>
+    </c:if>
   </body>
 </html>

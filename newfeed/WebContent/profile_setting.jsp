@@ -18,7 +18,6 @@
   </head>
 
   <body>
-  <c:set var="user" value="1"/> ไอดีผู้ใช้ๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆ<br>
   <form>
   	<sql:query dataSource="jdbc/lungthong" var="rs">
 		select * from member where user_id=${user};
@@ -45,10 +44,9 @@
 
          <button class="btn-warning btn btn-block" >Change Setting</button><br>
          </form>
-
-          <button class="btn-danger btn btn-block">Logout</button><br>
-         
-         <button class="btn-info btn btn-block">Back</button>
+			<form action="login.jsp">
+          <button class="btn-danger btn btn-block" type="submit">Logout</button><br>
+         </form>
          
          </div>
      </div>

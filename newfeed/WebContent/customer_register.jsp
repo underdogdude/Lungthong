@@ -18,12 +18,6 @@
 	Email:<br><input type="text" name="email"/><br>
 	Confirm Email:<br><input type="text" name="emailag"/><br>
 	
-	Name:<br><input type="text" name="name"/><br>
-	Surname:<br><input type="text" name="surname"/><br>
-	Address:<br><input type="text" name="add"/><br>
-	Telephone:<br><input type="text" name="tel"/><br>
-	Social:<br><input type="text" name="social"/><br>
-	
 	<input type="submit" value="Register"/> 
 </form>
 <c:if test="${param.user !=null && param.pass!=null}">
@@ -54,7 +48,7 @@
 		</c:if>
 		<c:if test="${stat.equals(value)}">
 			<sql:update dataSource="jdbc/lungthong" var="selected">
-				INSERT INTO `lungthong`.`member` (`username`, `password`, `email`, `role`, `name`, `surname`, `address`, `tel`, `social`, `pic`) VALUES ('${param.user}', '${param.pass}', '${param.email}', 'user', '${param.name}', '${param.surname}', '${param.add}', '${param.tel}', '${param.social}','${pic}');
+				INSERT INTO `lungthong`.`member` (`username`, `password`, `email`, `role`) VALUES ('${param.user}', '${param.pass}', '${param.email}', 'user');
 
 				<c:set var="stat" value="Success"/>
 			</sql:update>

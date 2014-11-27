@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:set var="user" value="5"/> ไอดีผู้ใช้ๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆ
 	<c:if test="${param.com !=null}">
 	<form action="comment.jsp?id=${param.id}">
 		<sql:update dataSource="jdbc/lungthong" var="rs2">

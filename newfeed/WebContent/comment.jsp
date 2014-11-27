@@ -18,7 +18,6 @@
   </head>
 
   <body>
-  <c:set var="user" value="1"/> ไอดีผู้ใช้ๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆ<br>
 	<sql:query dataSource="jdbc/lungthong" var="rs">
 			select * from post where post_id= ${param.id};
 	</sql:query>

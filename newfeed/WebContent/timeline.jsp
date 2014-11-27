@@ -31,7 +31,7 @@
            	<div class="mytopic row">
             	<div class="col-xs-4" align="center"><a href= comment.jsp?id=${i.post_id}><img src="${i.pic}" class="thumbnail img-responsive" /></a></div>
                 <div class="col-xs-8">
-                <h1 id="mytopic_name"><a href= comment.jsp?id=${i.post_id} style="color:white">${i.head}</a</h1>
+                <h1 id="mytopic_name"><a href= comment.jsp?id=${i.post_id} style="color:white">${i.head}</a></h1>
                 <h3>
                 <span class="label label-info">${i.type}</span>
                 <span class="label label-info">${i.style}</span>

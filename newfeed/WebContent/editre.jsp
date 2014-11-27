@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:set var="user" value="1"/> ไอดีผู้ใช้ๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆ
 	<c:if test="${param.p_id !=null}">
 		
 	<c:redirect url="http://localhost:8080/newfeed/comment.jsp?edit=yes&&id=${param.p_id}"/>

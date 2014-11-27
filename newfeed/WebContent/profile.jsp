@@ -18,7 +18,7 @@
   </head>
 
   <body>
-  <form>
+  
   	<sql:query dataSource="jdbc/lungthong" var="rs">
 		select * from member where user_id=${param.id};
 	</sql:query>
@@ -32,8 +32,8 @@
          </div>
           <div class="col-xs-6">
             <h1>${i.username}</h1><br>
-            Name: ${i.name}  ${surname}<br>
-            Telephone: ${i.tel}
+            Name: ${i.name}  ${i.surname}<br>
+            Telephone: ${i.tel}<br>
             Social: ${i.social}
          </div>
          <div class="col-xs-12">
@@ -41,10 +41,9 @@
          </div>
 		</c:forEach>
          <div class="col-xs-8 col-xs-offset-2"><br>
+         <form>
+         <button type="button" class="btn-info btn btn-block" onClick="javascript:window.location='comment.jsp?id=${param.p_id}';">Back</button>
          </form>
-         <form action="comment.jsp?id=${param.id}"?
-         <button class="btn-info btn btn-block" onClick="javascript:window.location='comment.jsp?id=${param.p_id}';">Back</button>
-         
          </div>
      </div>
      </div>  
