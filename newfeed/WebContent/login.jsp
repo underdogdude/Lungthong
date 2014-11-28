@@ -58,7 +58,7 @@
         <div class="col-xs-8 col-xs-offset-2" id="customerform"  style="display:none">
         
         <form class="form" role="form" >
-        <h1 style="color:#FFF"> Customer Form</h1>
+        <h1 style="color:#FFF"> Register</h1>
         <p> <input name="user" type="text" id="username" class="form-control" placeholder="Username" required autofocus></p>
         <p> <input name="pass" type="password" id="inputPassword" class="form-control" placeholder="Password" required></p>
         <p><input name="passag" type="password" id="inputCPassword" class="form-control" placeholder="Confirm Password" required></p>

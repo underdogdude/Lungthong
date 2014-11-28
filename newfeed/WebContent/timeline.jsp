@@ -25,7 +25,7 @@
 	<c:forEach items="${rs.rows}" var="i">
 	<div class="container">
     	<div class="row navbar-fixed-top" id="top" align="right">
-        <img src="img/icon/setting.png" id="setting_icon">
+        <a href= "profile_setting.jsp"}><img src="img/icon/setting.png" id="setting_icon"></a>
         </div>
 		<div class="col-xs-10 col-xs-offset-1" id="main">
            	<div class="mytopic row">

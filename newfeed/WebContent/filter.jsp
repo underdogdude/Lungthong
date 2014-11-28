@@ -26,7 +26,7 @@
   <form>
 	<div class="container">
     	<div class="row navbar-fixed-top" id="top" align="right">
-        <img src="img/icon/setting.png" id="setting_icon">
+        <a href= "profile_setting.jsp"}><img src="img/icon/setting.png" id="setting_icon"></a>
         </div>
         <div id="search_menu">
 		<div class="row">
