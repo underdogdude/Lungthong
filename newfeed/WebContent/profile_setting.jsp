@@ -45,6 +45,7 @@
          <button class="btn-warning btn btn-block" >Change Setting</button><br>
          </form>
 			<form action="login.jsp">
+			<c:set var="user" value="null" scope="session"/>
           <button class="btn-danger btn btn-block" type="submit">Logout</button><br>
          </form>
          

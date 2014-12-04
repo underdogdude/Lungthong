@@ -8,6 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<c:if test="${sessionScope.user==null }">
+		<c:set var="user" scope="session" value="null"/>
+	</c:if>
 	${user}
 </body>
 </html>
