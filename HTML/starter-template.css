@@ -4,35 +4,46 @@ body {
 }
 
 #top{
-	background-color:#333333;
-	height:40px;
+	background-color:#595959;
+	height:50px;
 }
+#username_text{
+	color:#FFF;	
+	font-size:25px;
+	font-weight: bold;
+	position:absolute;
+	left:150px;
+	top:10px;
+	}
 #setting_icon{
+	position:absolute;
 	height:30px;
-	margin-right:50px;
-	margin-top:5px;
-}
+	top:10px;
+	right:40px;
+	}
+#profile_icon{
+	position:absolute;
+	height:80px;
+	left:50px;
+	}
 #main{
 	
 	margin-top:50px;
 	padding-top:10px;
 	}
-#mytopic_name{
-	margin-top:5px;
-	color:#FFF;
-	}
 #topic_name{
 	margin-top:5px;
 	color:#000;
+	font-size:18px;
+	font-weight: bold;
 	}
-#mytopic_price{
-	
-	color:#FFF;
-	}
-#topic_price{
+
+.price{
 	
 	color:#000;
-	}		
+	font-size:18px;
+	}
+	
 #bottom_menu{
 	background-color: #bcbcaa;
 
@@ -47,20 +58,38 @@ body {
 	z-index:-1;
 
 	}
-.mytopic{
+.hottopic{
+	
+    border-style:solid;
+    border-width                :   4px;
+    border-color                :   #000000;
+    -webkit-border-radius       :   3px;
+    -moz-border-radius          :   3px;
+    border-radius               :   3px;
 	padding-top:10px;
-	background-color:#069;
+	background-color:#F90;
 	
 	}
 	
 .topic{
+	  border-style                :   solid;
+    border-width                :   4px;
+    border-color                :   #000000;
+    -webkit-border-radius       :   3px;
+    -moz-border-radius          :   3px;
+    border-radius               :   3px;
 	padding-top:10px;
 	background-color:#fff2a7;
 	margin-top:10px;
 	}
-	
+#top_star{
+	height:50px;
+	position:absolute;
+	left:-25px;
+	top:60px;
+	}
 .thumbnail{
-	width:150px;
+	
 }
 #snapcam{
 	margin-top:30px;
