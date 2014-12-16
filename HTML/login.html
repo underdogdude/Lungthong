@@ -2,25 +2,29 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="img/logo_lungthong.png">
-
-    <title>LungThong - Invert Online Market</title>
-    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+ 	<link href="dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href="dist/css/spinner.css" rel="stylesheet">
-    
     <link href="starter-template.css" rel="stylesheet">
+    
+    <title>LungThong - Invert Online Market</title>
+   
+    
+   
     <script src="assets/js/ie-emulation-modes-warning.js"></script>
   </head>
 
   <body style="background">
 	<div class="container" align="center">
     	<span id="logo">   	
-        <img src="img/icon/logo_longthong.png" id="login__logo"/>
+        <img src="img/icon/logo_longthong.png" id="login__logo"/><br>
+
         
-        <p style="font-size:50px;font-family:'Comic Sans MS', cursive;font-weight:bold;">LUNGTHONG</p>
-        <p style="font-size:20px; color:#F00"> Online Invert Market</p>
+       	<img style="height:50px;margin:5px;" src="img/login/LUNG THONG.PNG"/><br>
+
+        <img style="height:30px;margin:5px;" src="img/login/Invert Online Market.PNG"/><br>
+
+        
 		</span>
         <div class="spinner" id="spinner">
   		<div class="rect1"></div>
@@ -29,52 +33,48 @@
   		<div class="rect4"></div>
  	 	<div class="rect5"></div>
 		</div>
-        <div class="col-xs-6 col-xs-offset-3" id="button" style="display:none">                   
-        <a class="btn-danger btn-block btn-lg"  href="javascript: showregister();">Sign Up</a>
-        <a class="btn-default btn-block btn-lg"  href="javascript: showlogin();">Login</a>
-         <a href="javascript: forgetpass();">forget password</a>
+        <div class="col-xs-10 col-xs-offset-1" id="button" style="display:none">                   
+        <img src="img/login/REGISTER.PNG"  class="button" onClick="showregister()"/>
+        <br>
+
+        <img src="img/login/LOGIN.PNG" class="button" onClick="showlogin();"/>
+      
+
+         <a href="javascript: forgetpass();" style="color:#F00"><p>forget password</p></a>
 		</div>
         
+        <!--login form-->
         <div class="col-xs-8 col-xs-offset-2">
         <form class="form-signin" role="form" id="loginform" style="display:none">
-        
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <input type="text" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
         <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
        
         <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
         </form>
       	</div>
-        <div class="col-xs-8 col-xs-offset-2" id="choosebutton" style="display:none">
-        <a class="btn-info btn-block btn-lg"  href="javascript: showCustomer();">Sign Up As Customer</a>
-        <br>
-		<br>
-        <a class="btn-success btn-block btn-lg"  href="javascript: showShop();">Sign Up As Shop</a>
-        </div>
         
-        <div class="col-xs-8 col-xs-offset-2" id="customerform"  style="display:none">
+     
         
+               
+        
+         <!--Register form-->
+         <div class="col-xs-10 col-xs-offset-1" id="registerform" style="display:none">
         <form class="form" role="form" >
-        <h1 style="color:#FFF"> Customer Form</h1>
-        <p> <input type="text" id="username" class="form-control" placeholder="Username" required autofocus></p>
-        <p> <input type="password" id="inputPassword" class="form-control" placeholder="Password" required></p>
-        <p><input type="password" id="inputCPassword" class="form-control" placeholder="Confirm Password" required></p>
-        <p><input type="email" id="inputEmail" class="form-control" placeholder="Email" required></p>
-        <p><input type="email" id="inputCEmail" class="form-control" placeholder="Email Confirm" required></p>
+        <div class="row">
+        	<img src="img/login/top layout/logo_longthong1.png" class="img-responsive"/>
+        </div>
+        <p class="regis_text">Username:</p><input type="text" id="username" class="form-control regis_input" required autofocus>
+        <p class="regis_text">Password:</p><input type="password" id="inputPassword" class="form-control regis_input" required>
+        <p class="regis_text">Confirm Password</p><input type="password" id="inputCPassword" class="form-control regis_input" required>
+        <p class="regis_text">Email:</p><input type="email" id="inputEmail" class="form-control regis_input" required>
+        <p class="regis_text">Confirm Email:</p><input type="email" id="inputCEmail" class="form-control regis_input"  required>
+        <p class="regis_text">Facebook:</p><input type="text" id="inputCEmail" class="form-control regis_input"  required>
+        <p class="regis_text">Line:</p><input type="text" id="inputCEmail" class="form-control regis_input"  required>
+        <p class="regis_text">Address:</p><input type="text" id="inputCEmail" class="form-control regis_input"  required>
+        <p class="regis_text">Telephone:</p><input type="text" id="inputCEmail" class="form-control regis_input"  required>
         <br>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
-        </form>
-        </div>
-        
-         <div class="col-xs-8 col-xs-offset-2" id="shopform" style="display:none">
-        <form class="form" role="form" >
-        <h1 style="color:#FFF"> Shop Form</h1>
-        <p> <input type="text" id="username" class="form-control" placeholder="Username" required autofocus></p>
-        <p> <input type="password" id="inputPassword" class="form-control" placeholder="Password" required></p>
-        <p><input type="password" id="inputCPassword" class="form-control" placeholder="Confirm Password" required></p>
-        <p><input type="email" id="inputEmail" class="form-control" placeholder="Email" required></p>
-        <p><input type="email" id="inputCEmail" class="form-control" placeholder="Email Confirm" required></p>
-        <br>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+        <button class="btn btn-lg btn-info btn-block" type="submit">Back</button>
         </form>
         </div>
     </div>

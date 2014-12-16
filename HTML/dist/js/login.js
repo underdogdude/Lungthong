@@ -13,18 +13,10 @@ function showregister(){
 	document.getElementById('logo').style.display='none';
 	document.getElementById('loginform').style.display='none';
 	document.getElementById('button').style.display='none';
-	document.getElementById('choosebutton').style.display='block';
+	document.getElementById('registerform').style.display='block';
 	
 }
-function showCustomer(){
-	
-	document.getElementById('choosebutton').style.display='none';
-	document.getElementById('customerform').style.display='block';
-}
-function showShop(){
-	document.getElementById('choosebutton').style.display='none';
-	document.getElementById('shopform').style.display='block';
-}
+
 function sleep(milliseconds) {
   var start = new Date().getTime();
   for (var i = 0; i < 1e7; i++) {
