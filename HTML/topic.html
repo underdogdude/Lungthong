@@ -15,44 +15,43 @@
   </head>
 
   <body>
+  <img src="img/profile/BACK.png" id="post_back">
 	<div class="container" >
-   	<div class="row" id="topic_info" align="center">  
-   <span id="topic_name"><h3>Topic Name</h3></span>
-    <img src="img/icon/upload.png" id="product_pic">
-  <hr>
+    <div class="col-xs-10 col-xs-offset-1">
+   	<div class="row" id="topic_info">  
+        <p id="topicin_name" >Topic Name</p>
+        <div class="row" style="margin:10px;">
+            <div class="col-xs-8" align="center">
+                 <img src="img/topic/Head Topic/Layer 1.png" id="product_pic" class="img-responsive">
+            </div>
+            <div class="col-xs-4">
+               <div class="tag">Tag1</div><br>
+               <div class="tag">Tag2</div><br>
+               <div class="tag">Tag3</div><br>
 
-
-    <textarea class="form-control" rows="2" >Description</textarea> 
-      <h3>
-      <span class="label label-info">Tag1</span>
-      <span class="label label-info">Tag2</span>
-      <span class="label label-info">Tag3</span>
-       <span class="label label-info">Tag4</span>
-        </h3>
-       
-    </div> 
-    <div id="comment_row" class="row">
-    <div class="col-xs-4" align="right">
-     <img src="img/icon/selection.png" class="img-circle" id="profile_comment_pic">
-     </div>
-     <div class="col-xs-8">
-     <h2>Username</h2>
-     </div>
-     <hr>
-	<p>Comment</p>
-    <p>Comment</p>
-    </div>
-    
-       <div class="row navbar-fixed-bottom" id="bottom_menu" align="center">
-        <img src="img/icon/selection.png"  class="selection">
-       <img src="img/icon/timeline.png"  class="img-rounded">
-       <img src="img/icon/snap.png"  class="img-rounded">
-       <img src="img/icon/search.png"  class="img-rounded">
-       <img src="img/icon/history.png"  class="img-rounded">
+            </div>
        </div>
+       <!--<div class="row" style="margin:10px;">
+            <div class="col-xs-3" align="center">
+            	<img src="img/post/Group 1/Layer 1.png"/ class="img-responsive" style="max-height:100px;">
+            </div>
+             <div class="col-xs-5" align="center" id="post_user">
+            	<p style="font-weight:bold">Username</p>
+            </div>
+             <div class="col-xs-4" align="center" id="post_date">
+            	<p style="font-weight:bold">Post Date:</p> XXXXXXX
+            </div>
+      </div> --> 
+  
 
-	
 
+
+    <textarea class="form-control" rows="2" disabled >Description</textarea> 
+       
+   	</div>
+    </div>
+     
+     
   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
