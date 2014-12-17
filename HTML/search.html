@@ -17,100 +17,114 @@
 
   <body>
 	<div class="container">
-    	<div class="row navbar-fixed-top" id="top" align="right">
-        <img src="img/icon/setting.png" id="setting_icon">
-        </div>
-        <div id="search_menu">
-		<div class="row">
-        <form>
-        <div class="col-xs-9">
-         	<div class="col-md-3 col-xs-6">
-       	<select class="form-control" name="type" >
-       	<option selected disabled>Type</option>
-  		<option value="">shirt</option>
-  		<option value="">2</option>
-  		<option value="">3</option>
-  		<option value="">4</option>
-  		<option value="">5</option>
-		</select>
-        </div>
-        <div class="col-md-3 col-xs-6">
-       	<select class="form-control" name="style" >
-       	<option selected disabled>Style</option>
-  		<option value="">shirt</option>
-  		<option value="">2</option>
-  		<option value="">3</option>
-  		<option value="">4</option>
-  		<option value="">5</option>
-		</select>
-        </div>
-        <div class="col-md-3 col-xs-6">
-       	<select class="form-control" name="color" >
-       	<option selected disabled>Color</option>
-  		<option value="">shirt</option>
-  		<option value="">2</option>
-  		<option value="">3</option>
-  		<option value="">4</option>
-  		<option value="">5</option>
-		</select>
-        </div>
-        <div class="col-md-3 col-xs-6">
-       	<select class="form-control" name="size" >
-       	<option selected disabled>Size</option>
-  		<option value="">shirt</option>
-  		<option value="">2</option>
-  		<option value="">3</option>
-  		<option value="">4</option>
-  		<option value="">5</option>
-		</select>
-        </div>
-        </div>
-        <div class="col-xs-3">
-        <button type="submit" class="btn-info btn-block btn-lg"><span class="glyphicon glyphicon-search"></span> Search</button>
-        </div>
-        <form>
+    	<div class="row navbar-fixed-top" id="top">
+            <img src="img/Topmenu/logo_longthong1.png" id="profile_icon"/>
+            <p id="username_text">Username</p>
+            <img src="img/Topmenu/profile button.png" id="setting_icon">
+       
+        
+            <div id="search_menu">
+                <div class="row">
+               	<div class="col-xs-8" id="dropdownbox">
+                <div class="col-xs-4">
+                    <select class="form-control" name="type" >
+                    <option selected disabled>Type</option>
+                    <option value="">shirt</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                    <option value="">4</option>
+                    <option value="">5</option>
+                    </select>
+               </div>
+               <div class="col-xs-4">
+                    <select class="form-control" name="style" >
+                    <option selected disabled>Style</option>
+                    <option value="">shirt</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                    <option value="">4</option>
+                    <option value="">5</option>
+                    </select>
+               </div>
+               <div class="col-xs-4"> 
+                    <select class="form-control" name="color" >
+                    <option selected disabled>Color</option>
+                    <option value="">shirt</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                    <option value="">4</option>
+                    <option value="">5</option>
+                    </select>
+                 </div>
+                </div>
+                 <div class="col-xs-4">
+                    <button type="submit" class="btn-info btn-block btn-lg search_btn"><span class="glyphicon glyphicon-search"></span> Search</button>
+                 </div>
+                 </div>
+            </div>
         </div>
 
-        </div>
-		<div class="col-xs-12" id="main">
-            <div class="search_topic row">
-            	<div class="col-xs-3" align="center"><img src="img/icon/logo_longthong.png" class="thumbnail img-responsive" /></div>
-                <div class="col-xs-6">
-                <h3 id="topic_name">Topic Name</h3>
-                 <h5 id="topic_price"><span>Price min</span> <span>Price max</span></h5>
-                 <h5 id="topic_price"><span>Post Date XX/XX/XXXX</span></h5>
-                 <h5 id="topic_price"><span>Post by: XXXXX</span></h5>
-                 </div>
-                 <div class="col-xs-2" align="center">
-             
-                <div class="col-xs-12">
-                   <h4><span class="label label-info">Tag1</span></h4>
-                </div>
-                <div class="col-xs-12">
-                   <h4><span class="label label-info">Tag2</span></h4>
-                </div>
-                <div class="col-xs-12">
-                   <h4><span class="label label-info">Tag3</span></h4>
-                </div>
-                <div class="col-xs-12">
-                   <h4><span class="label label-info">Tag4</span></h4>
-                </div>
-               
-                </div>
+	
+
+        <div class="col-xs-10 col-xs-offset-1" style="margin-top:150px;">
+        
+        
+        
+            <div class="searchtopic row">
+            	<div class="col-xs-5" align="center"><img src="img/icon/logo_longthong.png" class="thumbnail img-responsive" /></div>
+                <div class="col-xs-7">
+                <h1 id="topic_name">Topic Name</h1>
                 
-            </div> 
-				
+                <span class="label label-info">Tag1</span>
+                <span class="label label-info">Tag2</span>
+                <span class="label label-info">Tag3</span>
+                
+                <p class="price">Price</p>
+                <p class="price">Post Date</p>
+                <p class="price">Post By</p>
+                </div>
+            </div>
+            
+            <div class="searchtopic row">
+            	<div class="col-xs-5" align="center"><img src="img/icon/logo_longthong.png" class="thumbnail img-responsive" /></div>
+                <div class="col-xs-7">
+                <h1 id="topic_name">Topic Name</h1>
+                
+                <span class="label label-info">Tag1</span>
+                <span class="label label-info">Tag2</span>
+                <span class="label label-info">Tag3</span>
+                
+                <p class="price">Price</p>
+                <p class="price">Post Date</p>
+                <p class="price">Post By</p>
+                </div>
+            </div>
+            
+            <div class="searchtopic row">
+            	<div class="col-xs-5" align="center"><img src="img/icon/logo_longthong.png" class="thumbnail img-responsive" /></div>
+                <div class="col-xs-7">
+                <h1 id="topic_name">Topic Name</h1>
+                
+                <span class="label label-info">Tag1</span>
+                <span class="label label-info">Tag2</span>
+                <span class="label label-info">Tag3</span>
+                
+                <p class="price">Price</p>
+                <p class="price">Post Date</p>
+                <p class="price">Post By</p>
+                </div>
+            </div>
+            
+            
+            
+            
+            
+              	
      	</div>
 		</div>
        
       </div>  
-       <div class="row navbar-fixed-bottom" id="bottom_menu" align="center">
-        <img src="img/icon/selection.png"  class="selection">
-       <img src="img/icon/timeline.png"  class="img-rounded">
-       <img src="img/icon/snap.png"  class="img-rounded">
-       <img src="img/icon/search.png"  class="img-rounded">
-       <img src="img/icon/history.png"  class="img-rounded">
-       </div>
+     
 
 	
 

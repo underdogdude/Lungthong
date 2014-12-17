@@ -25,6 +25,7 @@ body {
 	position:absolute;
 	height:80px;
 	left:50px;
+	z-index:300;
 	}
 #main{
 	
