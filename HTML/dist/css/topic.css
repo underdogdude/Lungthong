@@ -40,8 +40,10 @@
 }
 #comment_row{
 	padding:10px;
-	background-color:#E7AE05;
-	margin:10px;
+	background-color:#333;
+	margin:0px;
+	color:#FFF;
+	height:60px;
 }
 #profile_comment_pic{
 	width:100px;
@@ -49,3 +51,6 @@
 #post_back{
 	height:50px;
 	}
+#post_btn{
+	height:40px;
+		}
