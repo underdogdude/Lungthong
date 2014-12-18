@@ -8,16 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:if test="${param.p_id !=null}">
-	<form>
-		<sql:update dataSource="jdbc/lungthong" var="rs2">
-			UPDATE `lungthong`.`post` SET `stat`='complete' WHERE `post_id`="${param.p_id}";
-		</sql:update>
-		<jsp:forward page="newfeed.jsp">
-			<jsp:param name="" value=""/>
-		</jsp:forward>
-	<c:redirect url="timeline.jsp"/>
+	<c:set var="user" value="null" scope="session"/>
+	<c:redirect url="home.jsp"/>
 	</form>
-	</c:if>
+	
 </body>
 </html>

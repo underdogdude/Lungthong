@@ -23,7 +23,7 @@
   </head>
 
   <body>
-	<div class="container">
+	<div id="timeline">
     	<div class="row navbar-fixed-top" id="top">
             <img src="img/Topmenu/logo_longthong1.png" id="profile_icon"/>
             <sql:query dataSource="jdbc/lungthong" var="usernameq">
@@ -31,7 +31,7 @@
 			</sql:query>
         	<p id="username_text">${usernameq.rows[0].username}</p>
             <a href= "profile_setting.jsp"><img src="img/Topmenu/profile button.png" id="setting_icon"></a>
-       
+       </div>
         	<form>
             <div id="search_menu">
                 <div class="row">

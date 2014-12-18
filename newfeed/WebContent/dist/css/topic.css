@@ -1,7 +1,12 @@
 #topicin_name{
 	font-size:30px;
 	font-weight:bold;
+}
+#post_btn{
+	width:50px;
+	height: 40px;
 	
+}	
 	}
 .tag{
 	width:100px;

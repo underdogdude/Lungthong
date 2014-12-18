@@ -26,20 +26,6 @@
 	<div class="container" style="padding-bottom:40px;">
     <div class="col-xs-10 col-xs-offset-1">
     <c:forEach items="${rs.rows}" var="i">
-	<c:if test="${i.user_id==user}">
-			<form action="delcom.jsp">
-			<input type="hidden" name="p_id" value="${i.post_id}">
-			<input type='submit' value='Delete'>
-			</form>
-			<form action="editre.jsp" >
-			<input type="hidden" name="p_id" value="${param.id}">
-			<input type='submit' value='Edit'>
-			</form>
-			<form action="lock.jsp">
-			<input type="hidden" name="p_id" value="${i.post_id}">
-			<input type='submit' value='Finish'><br>
-			</form>
-	</c:if>
    	<div class="row" id="topic_info">  
         <p id="topicin_name" >${i.head}</p>
         <div class="row" style="margin:10px;">
@@ -75,6 +61,27 @@
 		<c:if test="${param.edit==null}">
 			<textarea class="form-control" rows="2" disabled>${i.comment}</textarea> 
 		</c:if>
+		<div class="row" style="margin-top:10px;">
+			<c:if test="${i.user_id==user}">
+				<form action="delcom.jsp">
+				<div class="col-xs-5" align="right">
+				<button type="submit"  class="profile_btn" style="background-color:#ffdd20"><img src="img/profile/complete.png" class="img-responsive"> </button>  
+				<input type="hidden" name="p_id" value="${i.post_id}">
+				</div>
+			</form>
+			<form action="editre.jsp" >
+			<div class="col-xs-2" align="center">
+				<button type="submit"  class="profile_btn" style="background-color:#ffdd20"><img src="img/profile/editpost.png" class="img-responsive"> </button>
+				<input type="hidden" name="p_id" value="${param.id}">
+			</div>
+			</form>
+			<form action="lock.jsp" >
+			<div class="col-xs-5" align="left">
+			<button type="submit"  class="profile_btn" style="background-color:#ffdd20"><img src="img/profile/delete.png" class="img-responsive"> </button>
+			</div>
+			</form>
+	</c:if>
+		</div>
        
    	</div>
     </c:forEach>
@@ -88,9 +95,9 @@
 	<c:forEach items="${rs3.rows}" var="k">
     <div class="row" style="margin-top:20px; background-color:#FF9">
         <div class="col-xs-2">
-            <img src="${k.pic}" style="max-height:100px;" id="cm_pic">
+            <img src="${k.pic}" style="max-height:80px;margin-bottom: 20px;" id="cm_pic">
         </div>
-        <div class="col-xs-8" style="margin-top:20px;">
+        <div class="col-xs-8" style="margin-top:20px;padding-left: 60px;">
             <span style="font-size:20px;font-weight:bold"><a href= profile.jsp?id=${k.user_id}&p_id=${param.id}>${k.username}</a></span>
         </div>
          <div class="col-xs-2" style="margin-top:20px;" align="right">
@@ -106,12 +113,17 @@
     <form action="comment_putdb.jsp">
     <input type="hidden" name="id" value="${param.id}">
     <div class="navbar navbar-fixed-bottom" id="comment_row">
-         <div class="col-xs-10">
+         <div class="col-xs-9">
          	<input type="text" name="com" class="form-control"/>
          </div>
-         <div class="col-xs-2">
-         	<%-- <img class="img-responsive" id="post_btn" src="img/topic/post comment/Post.png">--%>
-         	<input type="submit" value="post">
+         <div class="col-xs-3">
+         
+         <button type="submit" style="background-color:#E7AE05">
+         <img  id="post_btn" src="img/topic/post comment/Post.png">
+          </button> 
+         	
+         	
+         
          </div>
      </div>
      </form>

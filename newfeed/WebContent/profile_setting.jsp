@@ -45,28 +45,35 @@
         <div class="form-group form-group-xs">
           <label class="col-xs-4 control-label profile_text" for="sm">Password</label>
           <div class="col-xs-8">
-            <input class="form-control" type="password" id="sm" value="${i.password}" disabled>
+            <input class="form-control" type="password" id="sm" value="${i.password}" disabled="disabled">
           </div>
         </div>
 		<!------------------------------------------>        
         <div class="form-group form-group-xs">
           <label class="col-xs-4 control-label profile_text" for="sm">Name</label>
           <div class="col-xs-8">
-            <input class="form-control" type="text" id="sm" value="${i.name}  ${i.surname}" disabled>
+            <input name="name" class="form-control" type="text" id="sm" value="${i.name}" >
+          </div>
+        </div>
+        <!------------------------------------------>        
+        <div class="form-group form-group-xs">
+          <label class="col-xs-4 control-label profile_text" for="sm">Surname</label>
+          <div class="col-xs-8">
+            <input name="surname" class="form-control" type="text" id="sm" value="${i.surname}" >
           </div>
         </div>
 		<!------------------------------------------>         
         <div class="form-group form-group-xs">
           <label class="col-xs-4 control-label profile_text" for="sm">Tel</label>
           <div class="col-xs-8">
-            <input class="form-control" type="text" id="sm" value="${i.tel}" disabled>
+            <input name="tel" class="form-control" type="text" id="sm" value="${i.tel}">
           </div>
         </div>
 		<!------------------------------------------>         
         <div class="form-group form-group-xs">
           <label class="col-xs-4 control-label profile_text" for="sm">Social</label>
           <div class="col-xs-8">
-            <input class="form-control" type="text" id="sm" value="${i.social}" disabled>
+            <input name="social" class="form-control" type="text" id="sm" value="${i.social}" >
           </div>
         </div>
 		<!------------------------------------------>         
@@ -80,7 +87,7 @@
         <div class="form-group form-group-xs">
           <label class="col-xs-4 control-label profile_text" for="sm">Address</label>
           <div class="col-xs-8">
-            <input class="form-control" type="text" id="sm" value="${i.address}" disabled>
+            <input name="add" class="form-control" type="text" id="sm" value="${i.address}" >
           </div>
         </div>
 		<!------------------------------------------>         
@@ -142,11 +149,19 @@
        <div class="col-xs-6 col-xs-offset-3" >
        		<!--for my profile-->
 			<div class="col-xs-6">
-        	 <img src="img/profile/change.png" class="profile_btn img-responsive">
+        	 <%-- <img src="img/profile/change.png" class="profile_btn img-responsive">--%>
+			<button type="submit"  class="profile_btn" style="background-color:#ffdd20">
+                	<img src="img/profile/change.png" class=" img-responsive">
+                </button>
 			</div>
 			</form>
       	    <div class="col-xs-6">
-          	<img src="img/profile/Logout.png" class="profile_btn img-responsive">
+          	<%--<img src="img/profile/Logout.png" class="profile_btn img-responsive">--%>
+         	<form action="logout.jsp">
+          		<button type="submit"  class="profile_btn" style="background-color:#ffdd20">
+                	<img src="img/profile/Logout.png" class=" img-responsive">
+               </button>
+         </form>
          	</div>
         
        </div>
@@ -155,10 +170,14 @@
    </div>
    </div>  
        
+    <c:if test="${param.name!=null || param.tel!=null || param.social!=null || param.add!=null}">
+  		<sql:update dataSource="jdbc/lungthong" var="rs">
+			UPDATE `lungthong`.`member` SET `name`='${param.name}', `surname`='${param.surname}', `address`='${param.add}', `tel`='${param.tel}', `social`='${param.social}' WHERE `user_id`='${user}';
+		</sql:update>
+		<c:redirect url="profile_setting.jsp"/>
+	</c:if>
 
 	
-
-  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
     <script src="assets/js/ie10-viewport-bug-workaround.js"></script>

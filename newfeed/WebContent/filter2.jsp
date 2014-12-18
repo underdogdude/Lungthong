@@ -22,7 +22,7 @@
  	
   </head>
 
-  <body>
+  <body id="timeline">
   <form>
 	<div class="container">
     	<div class="row navbar-fixed-top" id="top" align="right">

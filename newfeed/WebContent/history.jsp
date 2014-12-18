@@ -17,7 +17,7 @@
     <script src="assets/js/ie-emulation-modes-warning.js"></script>
   </head>
 
-  <body>
+  <body id="timeline">
 	<div class="container" style="padding-bottom:70px;">
     	<div class="row navbar-fixed-top" id="top">
         <img src="img/Topmenu/logo_longthong1.png" id="profile_icon"/>

@@ -17,7 +17,7 @@
     <script src="assets/js/ie-emulation-modes-warning.js"></script>
   </head>
 
-  <body>
+  <body id="timeline">
 	<div class="container">
     	<div class="row navbar-fixed-top" id="top">
         <img src="img/Topmenu/logo_longthong1.png" id="profile_icon"/>
@@ -42,7 +42,7 @@
             <img src="img/timeline/topic1/Shape 1.png" id="top_star">
             	<div class="col-xs-5" align="center"><a href= comment.jsp?id=${hot.rows[0].post_id}><img src="${hot.rows[0].pic}" class="thumbnail img-responsive" /></a></div>
                 <div class="col-xs-7">
-                <h1 id="topic_name" style="color: black"><a href= comment.jsp?id=${hot.rows[0].post_id}> ${hot.rows[0].head}</a></h1>
+                <h1 id="topic_name"><a href= comment.jsp?id=${hot.rows[0].post_id}  style="color: white;"> ${hot.rows[0].head}</a></h1>
                 
                 <span class="label label-info">${hot.rows[0].type}</span>
                 <span class="label label-info">${hot.rows[0].style}</span>
@@ -61,9 +61,9 @@
             <c:forEach items="${rs.rows}" var="i">
         
             <div class="topic row">
-            	<div class="col-xs-5" align="center"><a href= comment.jsp?id=${i.post_id}><img src="${i.pic}" class="thumbnail img-responsive" /></a></div>
+            	<div class="col-xs-5" align="center"><a href= comment.jsp?id=${i.post_id} ><img src="${i.pic}" class="thumbnail img-responsive" /></a></div>
                 <div class="col-xs-7">
-                <h1 id="topic_name" style="color:black"><a href= comment.jsp?id=${i.post_id}>${i.head}</a></h1>
+                <h1 id="topic_name" ><a href= comment.jsp?id=${i.post_id} style="color: white;">${i.head}</a></h1>
                 <span class="label label-info">${i.type}</span>
                 <span class="label label-info">${i.style}</span>
                 <span class="label label-info">${i.colour}</span>

@@ -17,7 +17,7 @@
     <script src="assets/js/ie-emulation-modes-warning.js"></script>
   </head>
 
-  <body style="background">
+  <body id="login">
 	<div class="container" align="center">
     	<span id="logo">   
         <img src="img/icon/logo_longthong.png" id="login__logo"/>

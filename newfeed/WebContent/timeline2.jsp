@@ -17,7 +17,7 @@
     <script src="assets/js/ie-emulation-modes-warning.js"></script>
   </head>
 
-  <body>
+  <body id="timeline">
   <form>
   	<c:if test="${user==null }">
   		<br><br><br><br><br><br><br><br><br><br>5555555555555555555555555555555555555555555555555555555555555555<img src="WebContent/dukeWaving.png">

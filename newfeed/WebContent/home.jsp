@@ -17,7 +17,7 @@
     <script src="assets/js/ie-emulation-modes-warning.js"></script>
   </head>
 
-  <body style="background">
+  <body id="login">
 	<div class="container" align="center">
     	<span id="logo">   	
         <img src="img/icon/logo_longthong.png" id="login__logo"/><br>
@@ -38,7 +38,7 @@
         <img src="img/login/REGISTER.PNG"  class="img-responsive button" onClick="javascript:window.location='register.jsp'"/>
         <br>
 
-        <img src="img/login/LOGIN.PNG" class="img-responsivebutton" onClick="javascript:window.location='login.jsp'"/>
+        <img src="img/login/LOGIN.PNG" class="img-responsive button" onClick="javascript:window.location='login.jsp'"/>
       
 		</div>
         

@@ -98,42 +98,48 @@
        		<img class="star" id="star2" src="img/profile/Shape 1.png"/>
        		<img class="star" id="star3" src="img/profile/Shape 1.png"/>
        		<img class="star" id="star4" src="img/profile/Shape 1.png"/>
-      		<img class="star" id="star5" src="img/profile/Shape 1.png"/>from ${i.voter}
+      		<img class="star" id="star5" src="img/profile/Shape 1.png"/>
+      		<p>Vote from <span style="font-weight: bolder;color: red">${i.voter}</span> user</p>
        </c:if>
 		<c:if test="${score==1}">
 			<img class="star" id="star1" src="img/profile/Shape 2.png"/>
        		<img class="star" id="star2" src="img/profile/Shape 1.png"/>
        		<img class="star" id="star3" src="img/profile/Shape 1.png"/>
        		<img class="star" id="star4" src="img/profile/Shape 1.png"/>
-      		<img class="star" id="star5" src="img/profile/Shape 1.png"/>from ${i.voter}
+      		<img class="star" id="star5" src="img/profile/Shape 1.png"/>
+      		<p>Vote from <span style="font-weight: bolder;color: red">${i.voter}</span> user</p>
 		</c:if>
 		<c:if test="${score==2}">
 			<img class="star" id="star1" src="img/profile/Shape 2.png"/>
        		<img class="star" id="star2" src="img/profile/Shape 2.png"/>
        		<img class="star" id="star3" src="img/profile/Shape 1.png"/>
        		<img class="star" id="star4" src="img/profile/Shape 1.png"/>
-      		<img class="star" id="star5" src="img/profile/Shape 1.png"/>from ${i.voter}
+      		<img class="star" id="star5" src="img/profile/Shape 1.png"/>
+      		<p>Vote from <span style="font-weight: bolder;color: red">${i.voter}</span> user</p>
 		</c:if>
 		<c:if test="${score==3}">
 			<img class="star" id="star1" src="img/profile/Shape 2.png"/>
        		<img class="star" id="star2" src="img/profile/Shape 2.png"/>
        		<img class="star" id="star3" src="img/profile/Shape 2.png"/>
        		<img class="star" id="star4" src="img/profile/Shape 1.png"/>
-      		<img class="star" id="star5" src="img/profile/Shape 1.png"/>from ${i.voter}
+      		<img class="star" id="star5" src="img/profile/Shape 1.png"/>
+      		<p>Vote from <span style="font-weight: bolder;color: red">${i.voter}</span> user</p>
 		</c:if>
 		<c:if test="${score==4}">
 			<img class="star" id="star1" src="img/profile/Shape 2.png"/>
        		<img class="star" id="star2" src="img/profile/Shape 2.png"/>
        		<img class="star" id="star3" src="img/profile/Shape 2.png"/>
        		<img class="star" id="star4" src="img/profile/Shape 2.png"/>
-      		<img class="star" id="star5" src="img/profile/Shape 1.png"/>from ${i.voter}
+      		<img class="star" id="star5" src="img/profile/Shape 1.png"/>
+      		<p>Vote from <span style="font-weight: bolder;color: red">${i.voter}</span> user</p>
 		</c:if>
 		<c:if test="${score==5}">
 			<img class="star" id="star1" src="img/profile/Shape 2.png"/>
        		<img class="star" id="star2" src="img/profile/Shape 2.png"/>
        		<img class="star" id="star3" src="img/profile/Shape 2.png"/>
        		<img class="star" id="star4" src="img/profile/Shape 2.png"/>
-      		<img class="star" id="star5" src="img/profile/Shape 2.png"/>from ${i.voter}
+      		<img class="star" id="star5" src="img/profile/Shape 2.png"/>
+      		<p>Vote from <span style="font-weight: bolder;color: red">${i.voter}</span> user</p>
 		</c:if>
        </div>
      
@@ -145,21 +151,32 @@
        		<div class="col-xs-6 col-xs-offset-3">
             <%-- <img src="img/profile/vote.png" class="profile_btn img-responsive">--%>
             <input type="hidden" name="id" value="${param.id}">
-            <input type="submit" name="vote" value="Vote">
+            <c:if test="${param.check!=null}" >
+            	<button type="submit" name="vote" class="profile_btn" style="display:none">
+                	<img src="img/profile/vote.png" class="img-responsive">
+                </button> 
+            </c:if>
+            <c:if test="${param.check==null}" >
+             <input type="hidden" name="check" value="1">
+            	<button type="submit" name="vote" class="profile_btn" style="background-color:#ffdd20">
+                	<img src="img/profile/vote.png" class="img-responsive">
+                </button>  
+            </c:if>
+            
             </div>
         	</form>
         	<c:if test="${param.vote!=null}">
         		<form action="score.jsp">
         		<br>
         		<input type="hidden" name="idscore" value="${param.id}">
-        		<select name="scoresl">
+        		<select class="btn btn-default dropdown-toggle" name="scoresl">
   					<option value="1">1</option>
   					<option value="2">2</option>
   					<option value="3">3</option>
   					<option value="4">4</option>
   					<option value="5">5</option>
 				</select>
-				<input type="submit" value="Vote!!">
+				<input type="submit" value="Vote!!" class="btn btn-warning">
 				</form>
         	</c:if>
        </div>

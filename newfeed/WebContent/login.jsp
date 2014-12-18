@@ -15,7 +15,7 @@
     <script src="assets/js/ie-emulation-modes-warning.js"></script>
   </head>
 
-  <body style="background">
+  <body id="login">
 	<div class="container" align="center">
     <!--login form-->
     	<span id="logo">   	
@@ -34,8 +34,8 @@
         	<input type="text" id="inputEmail" name="user" class="form-control" placeholder="Username" required autofocus style="margin-top:10px;">
         	<input type="password" id="inputPassword" name="pass" class="form-control" placeholder="Password" required  style="margin-top:10px;">
        	</div>
-        <div class="col-xs-4">
-        	<button type="submit" style="height:100px;background-image:img/login/LOGIN2.PNG " ></button>
+        <div class="col-xs-4" align="left">
+        	<button type="submit" class="login_btn" style="background-color:#ffdd20"><img src="img/login/LOGIN2.PNG" class="img-responsive"> </button> 
         </div>
         </form>
       	</div>
