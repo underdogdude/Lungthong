@@ -17,7 +17,7 @@
     <script src="assets/js/ie-emulation-modes-warning.js"></script>
   </head>
 
-  <body>
+  <body  id="profile">
   <form>
   	<sql:query dataSource="jdbc/lungthong" var="rs">
 		select * from member where user_id=${user};

@@ -25,7 +25,8 @@
 		height:50px;
 		}
 .profile_btn{
-	min-height:70px;
-	min-width:70px;
-	margin:5px;
+	background-color:rgba(0,0,0,0);
+	margin:10px;
+	padding: 0px;
+	
 	}

@@ -17,7 +17,7 @@
     <script src="assets/js/ie-emulation-modes-warning.js"></script>
   </head>
 
-  <body>
+  <body id="topic">
   <sql:query dataSource="jdbc/lungthong" var="rs">
 			select * from post where post_id= ${param.id};
 	</sql:query>

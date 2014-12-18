@@ -7,13 +7,47 @@
 	padding-bottom: 60px;
 }
 #timeline{
-	background-image: url("img/2-antique-thai-temple-mural-patterns-kanoksak-detboon.png");
+	background-image: url(img/2-antique-thai-temple-mural-patterns-kanoksak-detboon.png);
 	background-attachment: fixed;
 	background-repeat: repeat;
+	background-position:center;
 	padding-bottom: 60px;
 	color: white;
 	
 }
+
+#profile{
+	
+	background-image: url(img/3.jpg);
+	background-attachment: fixed;
+	background-position:center;
+	padding-bottom: 60px;
+}
+#topic{
+	
+	background-image: url("img/19223798-thai-traditional-art-thai-art-background-thai-art-pattern-vector.png");
+	background-attachment: fixed;
+	background-repeat: repeat;
+	padding-bottom: 60px;
+	background-size: 400px 400px;
+	}
+	
+.tag{
+	width:80px;
+	height:30px;
+	font-size:15px;
+    border-width                :   2px;
+    border-color                :   #000000;
+    -webkit-border-radius       :   3px;
+    -moz-border-radius          :   3px;
+    border-radius               :   3px;
+	text-align:center;
+	background-color:rgba(234, 178, 50,1);
+	color:#FFF;
+	padding-top:5px;
+	margin: 5px;
+	
+	}
 #top{
 	background-color:rgba(0,0,0,0.5);
 	height:50px;
@@ -92,7 +126,7 @@
     -moz-border-radius          :   3px;
     border-radius               :   3px;
 	padding-top:10px;
-	background-color:rgba(200 ,200,100,0.7);
+	background-color:rgba(153 ,73, 14 ,0.7);
 	margin-top:10px;
 	}
 #top_star{

@@ -18,7 +18,7 @@
     <script src="assets/js/ie-emulation-modes-warning.js"></script>
   </head>
 
-  <body>
+  <body id="profile">
   	<sql:query dataSource="jdbc/lungthong" var="rs">
 		select * from member where user_id=${param.id};
 	</sql:query>

@@ -11,12 +11,9 @@
 	<c:if test="${param.p_id !=null}">
 	<form>
 		<sql:update dataSource="jdbc/lungthong" var="rs2">
-			DELETE FROM `lungthong`.`post` WHERE `post_id`="${param.p_id}";
+			UPDATE `lungthong`.`post` SET `stat`='del' WHERE `post_id`="${param.p_id}";
 		</sql:update>
-		<jsp:forward page="newfeed.jsp">
-			<jsp:param name="" value=""/>
-		</jsp:forward>
-	<c:redirect url="http://localhost:8080/newfeed/newfeed.jsp"/>
+	<c:redirect url="timeline.jsp"/>
 	</form>
 	</c:if>
 </body>

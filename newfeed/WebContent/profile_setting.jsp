@@ -19,7 +19,7 @@
   </head>
 
   <body>
-  <form>
+  <form id="profile">
   <sql:query dataSource="jdbc/lungthong" var="rs">
 		select * from member where user_id=${user};
 	</sql:query>
@@ -27,7 +27,7 @@
   <a href= "timeline.jsp"><img src="img/profile/BACK.png" class="profile_back"></a>
 	<div class="container" align="center">
     
-    <div class="row" style="background-color:#FBF87B;margin:20px;padding:10px;margin-bottom:70px;">
+    <div class="row" style="background-color:rgba(255, 225, 133,0.5);;margin:20px;padding:10px;margin-bottom:70px;color: white">
     <img id="profile_pic" class="img-responsive img-circle"  src="${i.pic}"/>
     
     	<div class="row" id="info_row" align="center">
@@ -105,60 +105,66 @@
        		<img class="star" id="star2" src="img/profile/Shape 1.png"/>
        		<img class="star" id="star3" src="img/profile/Shape 1.png"/>
        		<img class="star" id="star4" src="img/profile/Shape 1.png"/>
-      		<img class="star" id="star5" src="img/profile/Shape 1.png"/>from ${i.voter}
+      		<img class="star" id="star5" src="img/profile/Shape 1.png"/>
+      		<p>Vote from <span style="font-weight: bolder;color: red">${i.voter}</span> user</p>
        </c:if>
 		<c:if test="${score==1}">
 			<img class="star" id="star1" src="img/profile/Shape 2.png"/>
        		<img class="star" id="star2" src="img/profile/Shape 1.png"/>
        		<img class="star" id="star3" src="img/profile/Shape 1.png"/>
        		<img class="star" id="star4" src="img/profile/Shape 1.png"/>
-      		<img class="star" id="star5" src="img/profile/Shape 1.png"/>from ${i.voter}
+      		<img class="star" id="star5" src="img/profile/Shape 1.png"/>
+      		<p>Vote from <span style="font-weight: bolder;color: red">${i.voter}</span> user</p>
 		</c:if>
 		<c:if test="${score==2}">
 			<img class="star" id="star1" src="img/profile/Shape 2.png"/>
        		<img class="star" id="star2" src="img/profile/Shape 2.png"/>
        		<img class="star" id="star3" src="img/profile/Shape 1.png"/>
        		<img class="star" id="star4" src="img/profile/Shape 1.png"/>
-      		<img class="star" id="star5" src="img/profile/Shape 1.png"/>from ${i.voter}
+      		<img class="star" id="star5" src="img/profile/Shape 1.png"/>
+      		<p>Vote from <span style="font-weight: bolder;color: red">${i.voter}</span> user</p>
 		</c:if>
 		<c:if test="${score==3}">
 			<img class="star" id="star1" src="img/profile/Shape 2.png"/>
        		<img class="star" id="star2" src="img/profile/Shape 2.png"/>
        		<img class="star" id="star3" src="img/profile/Shape 2.png"/>
        		<img class="star" id="star4" src="img/profile/Shape 1.png"/>
-      		<img class="star" id="star5" src="img/profile/Shape 1.png"/>from ${i.voter}
+      		<img class="star" id="star5" src="img/profile/Shape 1.png"/>
+      		<p>Vote from <span style="font-weight: bolder;color: red">${i.voter}</span> user</p>
 		</c:if>
 		<c:if test="${score==4}">
 			<img class="star" id="star1" src="img/profile/Shape 2.png"/>
        		<img class="star" id="star2" src="img/profile/Shape 2.png"/>
        		<img class="star" id="star3" src="img/profile/Shape 2.png"/>
        		<img class="star" id="star4" src="img/profile/Shape 2.png"/>
-      		<img class="star" id="star5" src="img/profile/Shape 1.png"/>from ${i.voter}
+      		<img class="star" id="star5" src="img/profile/Shape 1.png"/>
+      		<p>Vote from <span style="font-weight: bolder;color: red">${i.voter}</span> user</p>
 		</c:if>
 		<c:if test="${score==5}">
 			<img class="star" id="star1" src="img/profile/Shape 2.png"/>
        		<img class="star" id="star2" src="img/profile/Shape 2.png"/>
        		<img class="star" id="star3" src="img/profile/Shape 2.png"/>
        		<img class="star" id="star4" src="img/profile/Shape 2.png"/>
-      		<img class="star" id="star5" src="img/profile/Shape 2.png"/>from ${i.voter}
+      		<img class="star" id="star5" src="img/profile/Shape 2.png"/>
+      		<p>Vote from <span style="font-weight: bolder;color: red">${i.voter}</span> user</p>
 		</c:if>
        </div>
        </div>
        </c:forEach>
        
-       <div class="col-xs-6 col-xs-offset-3" >
+       <div class="col-xs-6 col-xs-offset-3" style="margin-top:-60px;">
        		<!--for my profile-->
-			<div class="col-xs-6">
+			<div class="col-xs-6" >
         	 <%-- <img src="img/profile/change.png" class="profile_btn img-responsive">--%>
-			<button type="submit"  class="profile_btn" style="background-color:#ffdd20">
+			<button type="submit"  class="profile_btn btn btn-block" >
                 	<img src="img/profile/change.png" class=" img-responsive">
                 </button>
 			</div>
 			</form>
-      	    <div class="col-xs-6">
+      	    <div class="col-xs-6" >
           	<%--<img src="img/profile/Logout.png" class="profile_btn img-responsive">--%>
          	<form action="logout.jsp">
-          		<button type="submit"  class="profile_btn" style="background-color:#ffdd20">
+          		<button type="submit"  class="profile_btn btn btn-block" >
                 	<img src="img/profile/Logout.png" class=" img-responsive">
                </button>
          </form>
