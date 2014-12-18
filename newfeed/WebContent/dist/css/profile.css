@@ -1,6 +1,26 @@
 #info_row{
-	margin:30px;
+	margin:10px;
 	}
 #profile_pic{
+	margin:10px;
 	width:200px;
 }
+ 
+.profile_text{
+	
+	font-size:18px;
+	font-weight:bold;
+	text-align: right;
+	}
+.profile_back{
+	position:absolute;
+	left:5px;
+	top:5px;
+	height:50px;
+}
+#starbox{
+	margin:10px;
+	}
+	.star{
+		height:50px;
+		}

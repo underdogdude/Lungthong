@@ -2,8 +2,8 @@
 /* CSS Document */
 
 #search_menu{
-	background-color:#333;
-	height:90px;
+	background-color:#999;
+	height:100px;
 	
 	margin-top:40px;
 	padding:20px;	
@@ -14,3 +14,24 @@
 	padding:10px;
 	background-color:#fff2a7;
 		}
+	#dropdownbox{
+		margin-top:30px;
+	}
+	.search_btn{
+		margin-top:-10px;
+		height:80px;
+		}
+		
+	.searchtopic{
+	
+    border-style:solid;
+    border-width                :   4px;
+    border-color                :   #000000;
+    -webkit-border-radius       :   3px;
+    -moz-border-radius          :   3px;
+    border-radius               :   3px;
+	padding-top:10px;
+	background-color:#FF9;
+	margin-bottom:10px;
+	
+	}

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,46 +20,141 @@
 
   <body>
   <form>
-  	<sql:query dataSource="jdbc/lungthong" var="rs">
+  <sql:query dataSource="jdbc/lungthong" var="rs">
 		select * from member where user_id=${user};
 	</sql:query>
 	<c:forEach var="i" items="${rs.rows}">
+  <a href= "timeline.jsp"><img src="img/profile/BACK.png" class="profile_back"></a>
 	<div class="container" align="center">
-    <h1>Customer Profile</h1>
-    <hr>
-    <div class="row" id="info_row" align="center">
-        <div class="col-xs-6" align="center">
-            <img id="profile_pic" class="img-responsive img-circle"  src="${i.pic}">
-         </div>
-          <div class="col-xs-6">
-            <h1>${i.username}</h1><br>
-            <input name="name" type="text" class="form-control" id="cus_name" placeholder="Name" value="${i.name}"><input name="surname" type="text" class="form-control" id="cus_surname" placeholder="Surname" value="${i.surname}"><br>
-            <input name="tel" type="text" class="form-control" id="cus_tel" placeholder="Tel" value="${i.tel}"><br>
-            <input name="social" type="text" class="form-control" id="cus_social" placeholder="Social" value="${i.social}">
-         </div>
-         <div class="col-xs-12">
-           <textarea name="add" class="form-control" rows="4" >${i.address}</textarea>
-         </div>
-		</c:forEach>
-         <div class="col-xs-8 col-xs-offset-2"><br>
-
-         <button class="btn-warning btn btn-block" >Change Setting</button><br>
-         </form>
-			<form action="login.jsp">
-			<c:set var="user" value="null" scope="session"/>
-          <button class="btn-danger btn btn-block" type="submit">Logout</button><br>
-         </form>
+    
+    <div class="row" style="background-color:#FBF87B;margin:20px;padding:10px;margin-bottom:70px;">
+    <img id="profile_pic" class="img-responsive img-circle"  src="${i.pic}"/>
+    
+    	<div class="row" id="info_row" align="center">
+        
+         <h1>User Profile</h1>
          
-         </div>
-     </div>
-     </div>  
-       <div class="row navbar-fixed-bottom" id="bottom_menu" align="center">
-        <img src="img/icon/selection.png"  class="selection">
-       <img src="img/icon/timeline.png"  class="img-rounded">
-       <img src="img/icon/snap.png"  class="img-rounded">
-       <img src="img/icon/search.png"  class="img-rounded">
-       <img src="img/icon/history.png"  class="img-rounded">
+         <div class="form-group form-group-xs">
+          <label class="col-xs-4 control-label profile_text" for="sm">Username</label>
+          <div class="col-xs-8">
+            <input class="form-control" type="text" id="sm" value="${i.username}" disabled>
+          </div>
+        </div>
+        <br>
+		<!------------------------------------------>
+        <div class="form-group form-group-xs">
+          <label class="col-xs-4 control-label profile_text" for="sm">Password</label>
+          <div class="col-xs-8">
+            <input class="form-control" type="password" id="sm" value="${i.password}" disabled>
+          </div>
+        </div>
+		<!------------------------------------------>        
+        <div class="form-group form-group-xs">
+          <label class="col-xs-4 control-label profile_text" for="sm">Name</label>
+          <div class="col-xs-8">
+            <input class="form-control" type="text" id="sm" value="${i.name}  ${i.surname}" disabled>
+          </div>
+        </div>
+		<!------------------------------------------>         
+        <div class="form-group form-group-xs">
+          <label class="col-xs-4 control-label profile_text" for="sm">Tel</label>
+          <div class="col-xs-8">
+            <input class="form-control" type="text" id="sm" value="${i.tel}" disabled>
+          </div>
+        </div>
+		<!------------------------------------------>         
+        <div class="form-group form-group-xs">
+          <label class="col-xs-4 control-label profile_text" for="sm">Social</label>
+          <div class="col-xs-8">
+            <input class="form-control" type="text" id="sm" value="${i.social}" disabled>
+          </div>
+        </div>
+		<!------------------------------------------>         
+        <%-- <div class="form-group form-group-xs">
+          <label class="col-xs-4 control-label profile_text" for="sm">Line</label>
+          <div class="col-xs-8">
+            <input class="form-control" type="text" id="sm" value="@big14531" disabled>
+          </div>
+        </div>--%>
+		<!------------------------------------------>         
+        <div class="form-group form-group-xs">
+          <label class="col-xs-4 control-label profile_text" for="sm">Address</label>
+          <div class="col-xs-8">
+            <input class="form-control" type="text" id="sm" value="${i.address}" disabled>
+          </div>
+        </div>
+		<!------------------------------------------>         
        </div>
+       
+       <div  id="starbox">
+       <p class="profile_text" style="text-align: center;">Star Rate</p>
+       <fmt:formatNumber var="score"
+			value="${i.score/i.voter}"
+		maxFractionDigits="0"/>
+       
+       <c:if test="${i.score==0}">
+       		<c:set var="score" value="0"/>
+       		<img class="star" id="star1" src="img/profile/Shape 1.png"/>
+       		<img class="star" id="star2" src="img/profile/Shape 1.png"/>
+       		<img class="star" id="star3" src="img/profile/Shape 1.png"/>
+       		<img class="star" id="star4" src="img/profile/Shape 1.png"/>
+      		<img class="star" id="star5" src="img/profile/Shape 1.png"/>from ${i.voter}
+       </c:if>
+		<c:if test="${score==1}">
+			<img class="star" id="star1" src="img/profile/Shape 2.png"/>
+       		<img class="star" id="star2" src="img/profile/Shape 1.png"/>
+       		<img class="star" id="star3" src="img/profile/Shape 1.png"/>
+       		<img class="star" id="star4" src="img/profile/Shape 1.png"/>
+      		<img class="star" id="star5" src="img/profile/Shape 1.png"/>from ${i.voter}
+		</c:if>
+		<c:if test="${score==2}">
+			<img class="star" id="star1" src="img/profile/Shape 2.png"/>
+       		<img class="star" id="star2" src="img/profile/Shape 2.png"/>
+       		<img class="star" id="star3" src="img/profile/Shape 1.png"/>
+       		<img class="star" id="star4" src="img/profile/Shape 1.png"/>
+      		<img class="star" id="star5" src="img/profile/Shape 1.png"/>from ${i.voter}
+		</c:if>
+		<c:if test="${score==3}">
+			<img class="star" id="star1" src="img/profile/Shape 2.png"/>
+       		<img class="star" id="star2" src="img/profile/Shape 2.png"/>
+       		<img class="star" id="star3" src="img/profile/Shape 2.png"/>
+       		<img class="star" id="star4" src="img/profile/Shape 1.png"/>
+      		<img class="star" id="star5" src="img/profile/Shape 1.png"/>from ${i.voter}
+		</c:if>
+		<c:if test="${score==4}">
+			<img class="star" id="star1" src="img/profile/Shape 2.png"/>
+       		<img class="star" id="star2" src="img/profile/Shape 2.png"/>
+       		<img class="star" id="star3" src="img/profile/Shape 2.png"/>
+       		<img class="star" id="star4" src="img/profile/Shape 2.png"/>
+      		<img class="star" id="star5" src="img/profile/Shape 1.png"/>from ${i.voter}
+		</c:if>
+		<c:if test="${score==5}">
+			<img class="star" id="star1" src="img/profile/Shape 2.png"/>
+       		<img class="star" id="star2" src="img/profile/Shape 2.png"/>
+       		<img class="star" id="star3" src="img/profile/Shape 2.png"/>
+       		<img class="star" id="star4" src="img/profile/Shape 2.png"/>
+      		<img class="star" id="star5" src="img/profile/Shape 2.png"/>from ${i.voter}
+		</c:if>
+       </div>
+       </div>
+       </c:forEach>
+       
+       <div class="col-xs-6 col-xs-offset-3" >
+       		<!--for my profile-->
+			<div class="col-xs-6">
+        	 <img src="img/profile/change.png" class="profile_btn img-responsive">
+			</div>
+			</form>
+      	    <div class="col-xs-6">
+          	<img src="img/profile/Logout.png" class="profile_btn img-responsive">
+         	</div>
+        
+       </div>
+        
+   		</div>
+   </div>
+   </div>  
+       
 
 	
 
@@ -66,11 +162,5 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
     <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
-  	<c:if test="${param.name!=null || param.tel!=null || param.social!=null || param.add!=null}">
-  		<sql:update dataSource="jdbc/lungthong" var="rs">
-			UPDATE `lungthong`.`member` SET `name`='${param.name}', `surname`='${param.surname}', `address`='${param.add}', `tel`='${param.tel}', `social`='${param.social}' WHERE `user_id`='${user}';
-		</sql:update>
-		<c:redirect url="profile_setting.jsp"/>
-	</c:if>
   </body>
 </html>

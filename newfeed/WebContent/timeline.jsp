@@ -18,41 +18,70 @@
   </head>
 
   <body>
-  <form>
-  	<sql:query dataSource="jdbc/lungthong" var="rs">
-			select * from post where stat="yes";
-	</sql:query>
-	<c:forEach items="${rs.rows}" var="i">
 	<div class="container">
-    	<div class="row navbar-fixed-top" id="top" align="right">
-        <a href= "profile_setting.jsp"}><img src="img/icon/setting.png" id="setting_icon"></a>
+    	<div class="row navbar-fixed-top" id="top">
+        <img src="img/Topmenu/logo_longthong1.png" id="profile_icon"/>
+        <sql:query dataSource="jdbc/lungthong" var="usernameq">
+			select * from member where user_id="${user}";
+		</sql:query>
+        <p id="username_text">${usernameq.rows[0].username}</p>
+         <a href= "profile_setting.jsp"><img src="img/Topmenu/profile button.png" id="setting_icon"></a>
         </div>
+        	<sql:query dataSource="jdbc/lungthong" var="type">
+				SELECT count(*) as you , type FROM lungthong.post  group by type order by you desc ;
+			</sql:query>
+			<sql:query dataSource="jdbc/lungthong" var="hot">
+				 select * from post where type="${type.rows[0].type}";
+			</sql:query>
+        	<sql:query dataSource="jdbc/lungthong" var="hotname">
+				 select * from member where user_id="${hot.rows[0].user_id}";
+			</sql:query>
 		<div class="col-xs-10 col-xs-offset-1" id="main">
-           	<div class="mytopic row">
-            	<div class="col-xs-4" align="center"><a href= comment.jsp?id=${i.post_id}><img src="${i.pic}" class="thumbnail img-responsive" /></a></div>
-                <div class="col-xs-8">
-                <h1 id="mytopic_name"><a href= comment.jsp?id=${i.post_id} style="color:white">${i.head}</a></h1>
-                <h3>
+        	<h1 style="font-weight:bold">HOT TOPIC</h1>
+           	<div class="hottopic row">
+            <img src="img/timeline/topic1/Shape 1.png" id="top_star">
+            	<div class="col-xs-5" align="center"><a href= comment.jsp?id=${hot.rows[0].post_id}><img src="${hot.rows[0].pic}" class="thumbnail img-responsive" /></a></div>
+                <div class="col-xs-7">
+                <h1 id="topic_name" style="color: black"><a href= comment.jsp?id=${hot.rows[0].post_id}> ${hot.rows[0].head}</a></h1>
+                
+                <span class="label label-info">${hot.rows[0].type}</span>
+                <span class="label label-info">${hot.rows[0].style}</span>
+                <span class="label label-info">${hot.rows[0].colour}</span>
+                
+                <p class="price">Price:${hot.rows[0].minp}-${hot.rows[0].maxp}</p>
+                <p class="price">Post By ${hotname.rows[0].username}</p>
+                </div>
+            </div> 
+            <hr>
+            
+            <sql:query dataSource="jdbc/lungthong" var="rs">
+				select * from post where stat="yes";
+			</sql:query>
+			<h1 style="font-weight:bold">TIMELINE</h1>
+            <c:forEach items="${rs.rows}" var="i">
+        
+            <div class="topic row">
+            	<div class="col-xs-5" align="center"><a href= comment.jsp?id=${i.post_id}><img src="${i.pic}" class="thumbnail img-responsive" /></a></div>
+                <div class="col-xs-7">
+                <h1 id="topic_name" style="color:black"><a href= comment.jsp?id=${i.post_id}>${i.head}</a></h1>
                 <span class="label label-info">${i.type}</span>
                 <span class="label label-info">${i.style}</span>
                 <span class="label label-info">${i.colour}</span>
-                </h3>
-                <h3 id="mytopic_price">Price ${i.minp} - ${i.maxp}</h3>
+                
+                <p class="price">Price:${i.minp}-${i.maxp}</p>
+                <sql:query dataSource="jdbc/lungthong" var="name">
+					select * from member where ${i.user_id};
+				</sql:query>
+                <p class="price">Post By ${name.rows[0].username}</p>
                 </div>
             </div> 
-            </div> 
+            </c:forEach>
 				
      	</div>
 		</div>
        
-      </div>  
-       <div class="row navbar-fixed-bottom" id="bottom_menu" align="center">
-        <img src="img/icon/selection.png"  class="selection">
-       <img src="img/icon/timeline.png"  class="img-rounded">
-       <img src="img/icon/snap.png"  class="img-rounded">
-       <img src="img/icon/search.png"  class="img-rounded">
-       <img src="img/icon/history.png"  class="img-rounded">
-       </div>
+      
+       
 
 	
 
@@ -60,7 +89,5 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
     <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
-    </c:forEach>
-    </form>
   </body>
 </html>

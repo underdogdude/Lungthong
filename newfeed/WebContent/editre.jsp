@@ -10,7 +10,7 @@
 <body>
 	<c:if test="${param.p_id !=null}">
 		
-	<c:redirect url="http://localhost:8080/newfeed/comment.jsp?edit=yes&&id=${param.p_id}"/>
+	<c:redirect url="comment.jsp?edit=yes&&id=${param.p_id}"/>
 	</c:if>
 </body>
 </html>

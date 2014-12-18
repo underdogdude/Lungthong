@@ -13,10 +13,10 @@
 		<sql:update dataSource="jdbc/lungthong" var="rs2">
 			INSERT INTO comment (`text`, `owner`, `post_id`) VALUES ("${param.com}", ${user}, ${param.id});
 		</sql:update>
-		<jsp:forward page="comment.jsp"> 
+		<%--<jsp:forward page="comment.jsp"> 
 			<jsp:param name="id" value="${param.id}"/> 
-		</jsp:forward>
-	<c:redirect url="http://localhost:8080/newfeed/comment.jsp?id=${param.id}"/>
+		</jsp:forward>--%>
+	<c:redirect url="comment.jsp?id=${param.id}"/>
 	</form>
 	</c:if>
 </body>

@@ -18,10 +18,14 @@
   </head>
 
   <body>
-	<sql:query dataSource="jdbc/lungthong" var="rs">
+  <sql:query dataSource="jdbc/lungthong" var="rs">
 			select * from post where post_id= ${param.id};
 	</sql:query>
-	<c:forEach items="${rs.rows}" var="i">
+	
+  <a href= "timeline.jsp"><img src="img/profile/BACK.png" id="post_back"></a>
+	<div class="container" style="padding-bottom:40px;">
+    <div class="col-xs-10 col-xs-offset-1">
+    <c:forEach items="${rs.rows}" var="i">
 	<c:if test="${i.user_id==user}">
 			<form action="delcom.jsp">
 			<input type="hidden" name="p_id" value="${i.post_id}">
@@ -36,13 +40,32 @@
 			<input type='submit' value='Finish'><br>
 			</form>
 	</c:if>
-	<div class="container" >
-   	<div class="row" id="topic_info" align="center">  
-   <span id="topic_name"><h3>${i.head}</h3></span>
-   <h3 id="mytopic_price">Price ${i.minp} - ${i.maxp}</h3>
-    <img src="${i.pic}" id="product_pic">
-  <hr>
-      <c:if test="${param.edit!=null}">
+   	<div class="row" id="topic_info">  
+        <p id="topicin_name" >${i.head}</p>
+        <div class="row" style="margin:10px;">
+            <div class="col-xs-8" align="center">
+                 <img src="${i.pic}" id="product_pic" class="img-responsive">
+            </div>
+            <div class="col-xs-4">
+               <div class="tag">${i.type}</div><br>
+               <div class="tag">${i.style}</div><br>
+               <div class="tag">${i.colour}</div><br>
+
+            </div>
+       </div>
+       <!--<div class="row" style="margin:10px;">
+            <div class="col-xs-3" align="center">
+            	<img src="img/post/Group 1/Layer 1.png"/ class="img-responsive" style="max-height:100px;">
+            </div>
+             <div class="col-xs-5" align="center" id="post_user">
+            	<p style="font-weight:bold">Username</p>
+            </div>
+             <div class="col-xs-4" align="center" id="post_date">
+            	<p style="font-weight:bold">Post Date:</p> XXXXXXX
+            </div>
+      </div> --> 
+  
+    <c:if test="${param.edit!=null}">
 			<form action="editdb.jsp">
 			<input type="hidden" name="p_id" value="${param.id}">
 			<textarea class="form-control" rows="2" name="com">${i.comment}</textarea>
@@ -52,60 +75,49 @@
 		<c:if test="${param.edit==null}">
 			<textarea class="form-control" rows="2" disabled>${i.comment}</textarea> 
 		</c:if>
-		<h3>
-      <span class="label label-info">${i.type}</span>
-      <span class="label label-info">${i.style}</span>
-      <span class="label label-info">${i.colour}</span>
-      </h3>
-       <sql:query dataSource="jdbc/lungthong" var="rs2">
-			select * from member where user_id= ${i.user_id};
-		</sql:query>
-		<c:forEach items="${rs2.rows}" var="k">
-			by <a href= profile.jsp?id=${i.user_id}&p_id=${param.id}>${k.username}</a>  <br>
-		</c:forEach>   
        
-    </div>
+   	</div>
     </c:forEach>
     <sql:query dataSource="jdbc/lungthong" var="rs2">
 			select * from comment where post_id= ${param.id};
 	</sql:query>
 	<c:forEach items="${rs2.rows}" var="j">
-    <div id="comment_row" class="row">
-    <div class="col-xs-4" align="right">
-    <sql:query dataSource="jdbc/lungthong" var="rs3">
-			select * from member where user_id= ${j.owner};
+	<sql:query dataSource="jdbc/lungthong" var="rs3">
+			select * from member where user_id= "${j.owner}";
 	</sql:query>
 	<c:forEach items="${rs3.rows}" var="k">
-     <img src="${k.pic}" class="img-circle" id="profile_comment_pic">
-     </div>
-     <div class="col-xs-8">
-			<h2><a href= profile.jsp?id=${k.user_id}&p_id=${param.id}>${k.username}</a></h2>
-	</c:forEach>
-     </div>
-     <hr>
-	<p>${j.text}</p>
+    <div class="row" style="margin-top:20px; background-color:#FF9">
+        <div class="col-xs-2">
+            <img src="${k.pic}" style="max-height:100px;" id="cm_pic">
+        </div>
+        <div class="col-xs-8" style="margin-top:20px;">
+            <span style="font-size:20px;font-weight:bold"><a href= profile.jsp?id=${k.user_id}&p_id=${param.id}>${k.username}</a></span>
+        </div>
+         <div class="col-xs-2" style="margin-top:20px;" align="right">
+        </div>
+        <div class="col-xs-10 col-xs-offset-1" style="margin:10px; margin-top:-20px; background-color:#FFF">
+        	${j.text}
+        </div>
+        
     </div>
     </c:forEach>
+    </c:forEach>
+    </div>
     <form action="comment_putdb.jsp">
-	<input type="hidden" name="id" value="${param.id}">
-	<textarea class="form-control" rows="2" name="com"></textarea> 
-	<input type='submit' value='post'>
-	</form>
-    
-       <div class="row navbar-fixed-bottom" id="bottom_menu" align="center">
-        <img src="img/icon/selection.png"  class="selection">
-       <img src="img/icon/timeline.png"  class="img-rounded">
-       <img src="img/icon/snap.png"  class="img-rounded">
-       <img src="img/icon/search.png"  class="img-rounded">
-       <img src="img/icon/history.png"  class="img-rounded">
-       </div>
-
-	
-
+    <input type="hidden" name="id" value="${param.id}">
+    <div class="navbar navbar-fixed-bottom" id="comment_row">
+         <div class="col-xs-10">
+         	<input type="text" name="com" class="form-control"/>
+         </div>
+         <div class="col-xs-2">
+         	<%-- <img class="img-responsive" id="post_btn" src="img/topic/post comment/Post.png">--%>
+         	<input type="submit" value="post">
+         </div>
+     </div>
+     </form>
   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
     <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
-    
   </body>
 </html>
