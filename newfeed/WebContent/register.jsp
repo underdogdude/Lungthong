@@ -64,15 +64,16 @@
 		<c:if test="${stat.equals(value)}">
 			<sql:update dataSource="jdbc/lungthong" var="selected">
 				INSERT INTO `lungthong`.`member` (`username`, `password`, `email`, `role`,`pic`) VALUES ('${param.user}', '${param.pass}', '${param.email}', 'user','http://localhost:8080/newfeed/img/icon/logo_longthong.png');
-
-				<c:set var="stat" value="Success"/>
 			</sql:update>
+			<c:set var="stat" value="Success"/>
 		</c:if>
 	</c:forEach>
 	<p  style="color:red;text-align: center;margin-bottom: 50px;font-size: 30px;" > ${stat} </p>
 	</form>
     </c:if>
- 
+    <c:if test="${stat.equals('Success')}">
+ 		<c:redirect url="home.jsp"/>
+ 	</c:if>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
     <script src="dist/js/login.js"></script>
